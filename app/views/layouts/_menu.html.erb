@@ -30,7 +30,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in?  %>
-          <li><%= current_user.email %></li>
+          <li><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %></li>
           <li><%= link_to 'Profil', user_path(current_user.id) %></li>
           <li><%= link_to 'Modifier profil', edit_user_registration_path %></li>
           <li><%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %></li>
