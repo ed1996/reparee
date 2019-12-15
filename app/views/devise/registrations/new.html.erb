@@ -4,6 +4,7 @@
     <h2>Inscription client</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "shared/devise_errors" %>
 
       <div class="form-group">
         <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "Nom complet" %>
