@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artisan_type: MyString
+  company_name: MyString
+  code_naf: MyString
+  siren: MyString
+  siret: MyString
+  address: MyString
+  phone: MyString
+  legal_form: MyString
+  linkweb: MyString
+  is_card: false
+  is_cheque: false
+  is_cash: false
+  active: false
+  user: one
+
+two:
+  artisan_type: MyString
+  company_name: MyString
+  code_naf: MyString
+  siren: MyString
+  siret: MyString
+  address: MyString
+  phone: MyString
+  legal_form: MyString
+  linkweb: MyString
+  is_card: false
+  is_cheque: false
+  is_cash: false
+  active: false
+  user: two
