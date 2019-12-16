@@ -14,7 +14,7 @@ class EntreprisesController < ApplicationController
   def create
     @entreprise = current_user.entreprises.build(entreprise_params)
     if @entreprise.save
-      redirect_to @enterprise, notice:"Votre entreprise a été ajouté avec succès"
+      redirect_to @entreprise, notice:"Votre entreprise a été ajouté avec succès"
     else
       render :new
     end
@@ -36,7 +36,7 @@ class EntreprisesController < ApplicationController
 
   private
   def set_enterprise
-    @enterprise = Entreprise.find(params[:id])
+    @entreprise = Entreprise.find(params[:id])
   end
 
   def entreprise_params
