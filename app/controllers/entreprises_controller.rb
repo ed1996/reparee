@@ -2,6 +2,7 @@ class EntreprisesController < ApplicationController
 
   before_action :set_enterprise, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show]
+  before_action :require_same_user, only: [:edit, :update]
 
   def index
     @enterprises = current_user.entreprises
@@ -14,21 +15,35 @@ class EntreprisesController < ApplicationController
   def create
     @entreprise = current_user.entreprises.build(entreprise_params)
     if @entreprise.save
-      redirect_to @entreprise, notice:"Votre entreprise a été ajouté avec succès"
+      if params[:images]
+        params[:images].each do |i|
+          @entreprise.photos.create(image: i)
+        end
+      end
+      @photos = @entreprise.photos
+      redirect_to edit_entreprise_path(@entreprise), notice:"Votre entreprise a été ajouté avec succès"
     else
       render :new
     end
   end
 
   def show
+    @photos = @entreprise.photos
   end
 
   def edit
+    @photos = @entreprise.photos
   end
 
   def update
     if @entreprise.update(entreprise_params)
-      redirect_to @entreprise, notice:"Modifications enregistrée..."
+      if params[:images]
+        params[:images].each do |i|
+          @entreprise.photos.create(image: i)
+        end
+      end
+      @photos = @entreprise.photos
+      redirect_to edit_entreprise_path(@entreprise), notice:"Modifications enregistrée..."
     else
       render :edit
     end
@@ -41,6 +56,13 @@ class EntreprisesController < ApplicationController
 
   def entreprise_params
     params.require(:entreprise).permit(:artisan_type, :company_name, :code_naf, :siren, :siret, :address, :phone, :legal_form, :linkweb, :is_card, :is_cheque, :is_cash, :active)
+  end
+
+  def require_same_user
+    if current_user.id != @entreprise.user_id
+      flash[:danger] = "Vous n'avez pas le droit de modifier cette entreprise"
+      redirect_to root_path
+    end
   end
 
 end
