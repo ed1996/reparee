@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191216211820) do
+ActiveRecord::Schema.define(version: 20191218214807) do
 
   create_table "entreprises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "artisan_type"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20191216211820) do
     t.index ["user_id"], name: "index_entreprises_on_user_id"
   end
 
+  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "entreprise_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["entreprise_id"], name: "index_photos_on_entreprise_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,4 +61,5 @@ ActiveRecord::Schema.define(version: 20191216211820) do
   end
 
   add_foreign_key "entreprises", "users"
+  add_foreign_key "photos", "entreprises"
 end

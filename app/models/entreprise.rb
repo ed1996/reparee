@@ -1,5 +1,6 @@
 class Entreprise < ApplicationRecord
   belongs_to :user
+  has_many :photos
 
   validates :artisan_type, presence: true
   validates :company_name, presence: true
