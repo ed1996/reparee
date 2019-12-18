@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <div class="container">
-      <%= form_for @entreprise do |f| %>
+      <%= form_for @entreprise, html: {multipart: true} do |f| %>
           <div class="row">
             <div class="col-md-4 select">
               <div class="form-group">
@@ -50,6 +50,17 @@
             <%= f.text_field :legal_form, placeholder:"Forme juridique", class:"form-control" %>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <span class="btn btn-default btn-file">
+                Téléchargez vos photos !
+                <%= file_field_tag "images[]", type: :file, multiple: true %>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div id="photos"><%= render 'photos/list' %></div>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
