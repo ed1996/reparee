@@ -40,6 +40,7 @@ gem 'devise-i18n'
 gem "paperclip"
 gem 'toastr-rails'
 gem 'rails-i18n'
+gem 'paperclip-cloudinary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
