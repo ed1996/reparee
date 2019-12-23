@@ -5,7 +5,7 @@ class EntreprisesController < ApplicationController
   before_action :require_same_user, only: [:edit, :update]
 
   def index
-    @enterprises = current_user.entreprises
+    @entreprises = current_user.entreprises
   end
 
   def new
