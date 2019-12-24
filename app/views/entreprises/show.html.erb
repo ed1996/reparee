@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <!-- Photo principale de l'entreprise -->
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length > 0 %>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- Informations principales -->
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <%= image_tag avatar_url(@entreprise.user), class:"img-circle avatar-large" %>
+            <br>
+            <br>
+            <%= @entreprise.user.fullname %>
+          </div>
+          <div class="col-md-9">
+            <h4>Nom de l'entreprise: <%= @entreprise.company_name %></h4>
+            <p>Type d'artisan: <%= @entreprise.artisan_type %></p>
+            <p>Adresse: <%= @entreprise.address %></p>
+            <p>Code naf: <%= @entreprise.code_naf %></p>
+            <p>SIREN: <%= @entreprise.siren %></p>
+            <p>SIRET: <%= @entreprise.siret %></p>
+            <p>Forme juridique: <%= @entreprise.legal_form %></p>
+            <p>Lien web: <%= @entreprise.linkweb %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Formulaire de réservation -->
+
+      </div>
+    </div>
+
+    <!-- Equipements -->
+    <div class="row">
+      <div class="col-md-2">
+        <p>Moyen de paiement</p>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="equipments">
+              <li class="<%= 'text-line-throught' if !@entreprise.is_card %>">Carte de crédit</li>
+              <li class="<%= 'text-line-throught' if !@entreprise.is_cheque %>">Chèque</li>
+              <li class="<%= 'text-line-throught' if !@entreprise.is_cash %>">Espèce</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
