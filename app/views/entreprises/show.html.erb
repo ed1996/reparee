@@ -109,7 +109,7 @@
         </style>
 
           <script>
-              window.initMap = function() {
+             function initMap() {
              var uluru = {lat: <%= @entreprise.latitude %>, lng: <%= @entreprise.longitude %>};
           var map = new google.maps.Map(
           document.getElementById('map'), {zoom: 15, center: uluru});
