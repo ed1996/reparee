@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191218214807) do
+ActiveRecord::Schema.define(version: 20191224134238) do
 
   create_table "entreprises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "artisan_type"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20191218214807) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude", limit: 24
+    t.float "longitude", limit: 24
     t.index ["user_id"], name: "index_entreprises_on_user_id"
   end
 

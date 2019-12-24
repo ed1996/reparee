@@ -8,4 +8,7 @@ class Entreprise < ApplicationRecord
   validates :legal_form, presence: true
   validates :siren, presence: true, length: {maximum: 9}
   validates :phone, presence: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
