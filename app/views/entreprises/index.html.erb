@@ -14,7 +14,7 @@
               <%= image_tag entreprise.photos[0].image.url(:thumb) if entreprise.photos.length > 0 %>
             </div>
             <div class="col-md-7">
-              <h4><%= entreprise.company_name %></h4>
+              <h4><%= link_to entreprise.company_name, entreprise_path(entreprise) %></h4>
             </div>
             <div class="col-md-3 right">
               <%= link_to "Mettre à jour", edit_entreprise_path(entreprise), class:"btn btn-primary" %>

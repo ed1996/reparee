@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
   resources :photos
 
+  get 'vos_rendez_vous' => 'reservations#your_rdv'
+
 end
