@@ -1,15 +1,26 @@
 <%= form_for([@entreprise, @entreprise.reservations.new]) do |f| %>
 
-  <%= f.text_field :start_date%>
+  <%= f.text_field :start_date %>
   <%= f.select :hour, [["00h","00h"],["01h","01h"],["02h","02h"],["03h","03h"],["03h","03h"],["04h","04h"],["05h","05h"],["06h","06h"],["07h","07h"],["08h","08h"],["09h","09h"],["10h","10h"],["11h","11h"],["12h","12h"],
                              ["13h","13h"],["14h","14h"],["15h","15h"],["16h","16h"],["17h","17h"],["18h","18h"],["19h","19h"],["20h","20h"],["21h","21h"],["22h","22h"],["23h","23h"]], id: "hour", prompt: "Heure", class: "form-control" %>
   <%= f.select :minute, [["00","00"],["15","15"],["30","30"],["45","45"]], id: "minute", prompt: "Minute", class:"form-control" %>
   <%= f.text_field :address, placeholder:"Adresse du lieu de dépannage", class:"form-control" %>
   <%= f.text_field :postal_code, placeholder:"Code postal", class:"form-control" %>
   <%= f.text_field :phone, placeholder:"Téléphone", class:"form-control" %>
+  <%= f.text_area :description, placeholder:"Description du problème", class:"form-control" %>
 
   <%= f.hidden_field :entreprise_id, value: @entreprise.id %>
 
   <%= f.submit "Demande de rendez-vous", class:"btn btn-primary" %>
 
 <% end %>
+
+<script>
+    $(function(){
+        $('#reservation_start_date').datepicker({
+            dateFormat: 'dd-mm-yy',
+            monthNames: ['Janvier','février','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Décembre'],
+            dayNamesMin: ['D','L','M','M','J','V','S']
+        });
+    });
+</script>
