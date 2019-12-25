@@ -11,6 +11,10 @@ class ReservationsController < ApplicationController
     @rdv = current_user.reservations
   end
 
+  def your_reservations
+    @entreprises = current_user.entreprises
+  end
+
   private
   def reservation_params
     params.require(:reservation).permit(:start_date, :hour, :minute, :description, :address, :phone, :postal_code, :entreprise_id)

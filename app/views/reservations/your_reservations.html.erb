@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Mes entreprises", entreprises_path, class:"sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Mes réservations", vos_reservations_path, class:"sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "Mes rendez-vous", vos_rendez_vous_path, class:"sidebar-link" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-defautl">
+      <div class="panel-heading"> Mes reservations</div>
+      <div class="panel-body">
+        <% @entreprises.each do |entreprise| %>
+        <% entreprise.reservations.order("id DESC").each do |reservation| %>
+          <div class="row">
+            <div class="col-md-2">
+              Du <%= reservation.start_date.strftime('%d.%m.%y') %> à <%= reservation.hour %><%= reservation.minute %>
+            </div>
+            <div class="col-md-2">
+              <%= link_to entreprise_path(reservation.entreprise) do %>
+                <%= image_tag reservation.entreprise.photos[0].image.url(:thumb) if reservation.entreprise.photos.length > 0 %>
+              <% end %>
+            </div>
+            <div class="col-md-2">
+              <%= link_to user_path(reservation.entreprise.user) do %>
+                <%= image_tag avatar_url(reservation.user), class:"im-circle avatar-medium" %>
+              <% end %>
+            </div>
+            <div class="col-md-2">
+              <p><%= reservation.description %></p>
+            </div>
+            <div class="col-md-2">
+              <%= reservation.address %>, <%= reservation.postal_code %>
+            </div>
+            <div class="col-md-2">
+              <%= reservation.phone %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
