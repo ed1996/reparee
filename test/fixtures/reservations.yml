@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  entreprise: one
+  start_date: 2019-12-25 15:20:33
+  hour: MyString
+  minute: MyString
+  description: MyText
+  address: MyString
+  phone: MyString
+  postal_code: MyString
+
+two:
+  user: two
+  entreprise: two
+  start_date: 2019-12-25 15:20:33
+  hour: MyString
+  minute: MyString
+  description: MyText
+  address: MyString
+  phone: MyString
+  postal_code: MyString
