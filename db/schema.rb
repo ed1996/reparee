@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191225142033) do
+ActiveRecord::Schema.define(version: 20191226152750) do
 
   create_table "entreprises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "artisan_type"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20191225142033) do
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "comment"
+    t.integer "star", default: 1
+    t.bigint "entreprise_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entreprise_id"], name: "index_reviews_on_entreprise_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,4 +93,6 @@ ActiveRecord::Schema.define(version: 20191225142033) do
   add_foreign_key "photos", "entreprises"
   add_foreign_key "reservations", "entreprises"
   add_foreign_key "reservations", "users"
+  add_foreign_key "reviews", "entreprises"
+  add_foreign_key "reviews", "users"
 end
