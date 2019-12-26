@@ -95,6 +95,26 @@
         </div>
       </div>
     </div>
+
+    <br>
+    <hr>
+
+    <!-- Reviews -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3><%= pluralize(@reviews.count, 'commentaires') %> <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
+        <div class="container">
+          <div>
+            <%= render 'reviews/form' if @booked && !@hasReview %>
+          </div>
+          <div>
+            <%= render 'reviews/list' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 <br>
 
     <!-- Google maps -->
@@ -128,3 +148,11 @@
 
   </div>
 </div>
+
+<script>
+    $('#average_rating').raty({
+        path: '/assets',
+        readOnly: true,
+        score: <%= @entreprise.average_rating %>
+    });
+</script>
