@@ -29,6 +29,12 @@ class EntreprisesController < ApplicationController
 
   def show
     @photos = @entreprise.photos
+
+    @booked = Reservation.where("entreprise_id = ? AND user_id = ?", @entreprise.id, current_user.id).present?
+    if current_user
+      @reviews = @entreprise.reviews
+      @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+    end
   end
 
   def edit
