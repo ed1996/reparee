@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   end
   resources :photos
 
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
+
   get 'vos_rendez_vous' => 'reservations#your_rdv'
   get 'vos_reservations' => 'reservations#your_reservations'
 
