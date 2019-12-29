@@ -4,7 +4,10 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.create(reservation_params)
-    redirect_to @reservation.entreprise, notice: "Votre réservation a été acceptée"
+    if @reservation.save
+      ApplicationMailer.new_reservation(Entreprise.find(@reservation.entreprise_id), @reservation).deliver_now
+      redirect_to @reservation.entreprise, notice: "Votre réservation a été acceptée"
+    end
   end
 
   def your_rdv
