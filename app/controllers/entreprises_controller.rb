@@ -1,6 +1,6 @@
 class EntreprisesController < ApplicationController
 
-  before_action :set_enterprise, only: [:show, :edit, :update]
+  before_action :set_entreprise, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show]
   before_action :require_same_user, only: [:edit, :update]
 
@@ -29,8 +29,8 @@ class EntreprisesController < ApplicationController
 
   def show
     @photos = @entreprise.photos
-
-    @booked = Reservation.where("entreprise_id = ? AND user_id = ?", @entreprise.id, current_user.id).present?
+    @reviews = @entreprise.reviews
+    @booked = Reservation.where("entreprise_id = ? AND user_id = ?", @entreprise.id, current_user).present?
     if current_user
       @reviews = @entreprise.reviews
       @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
@@ -56,7 +56,7 @@ class EntreprisesController < ApplicationController
   end
 
   private
-  def set_enterprise
+  def set_entreprise
     @entreprise = Entreprise.find(params[:id])
   end
 
