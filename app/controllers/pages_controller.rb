@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @entreprises = Entreprise.order("RAND()").limit(3)
+    @entreprises = Entreprise.order("RANDOM()").limit(3)
     # Attention la fonction RANDOM ne marche que sur heroku et pas en local il faut mettre RAND pour tester en local
   end
 
