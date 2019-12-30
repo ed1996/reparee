@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
+
+  resources :subscribers, only: [:new, :create]
+
+  match "/404" => "errors#error404", via: [:get, :post, :patch, :delete]
+
   get 'vos_rendez_vous' => 'reservations#your_rdv'
   get 'vos_reservations' => 'reservations#your_reservations'
 

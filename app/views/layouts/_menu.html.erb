@@ -33,6 +33,7 @@
           <li><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %></li>
           <li><%= link_to 'Profil', user_path(current_user.id) %></li>
           <li><%= link_to conversations_path do %> Messages <% end %></li>
+          <li><%= link_to 'Abonnement', new_subscriber_path %></li>
           <li><%= link_to 'Mes entreprises', entreprises_path %></li>
           <li><%= link_to 'Mes rendez-vous', vos_rendez_vous_path %></li>
           <li><%= link_to 'Mes reservations', vos_reservations_path %></li>
