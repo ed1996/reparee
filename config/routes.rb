@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :subscribers, only: [:new, :create]
+  resources :subscribers
 
   match "/404" => "errors#error404", via: [:get, :post, :patch, :delete]
 
