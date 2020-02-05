@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
 
   resources :subscribers
+  resources :contacts, only: [:new, :create]
 
   match "/404" => "errors#error404", via: [:get, :post, :patch, :delete]
 
@@ -30,5 +31,8 @@ Rails.application.routes.draw do
   get 'vos_reservations' => 'reservations#your_reservations'
 
   get '/search' => 'pages#search'
+  get '/faq' => 'pages#faq'
+  get '/team' => 'pages#team'
+  get '/features' => 'pages#features'
 
 end

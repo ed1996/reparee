@@ -5,6 +5,22 @@ class PagesController < ApplicationController
     # Attention la fonction RANDOM ne marche que sur heroku et pas en local il faut mettre RAND pour tester en local
   end
 
+  def faq
+
+  end
+
+  def team
+
+  end
+
+  def features
+
+  end
+
+  def contact
+
+  end
+
   def search
     if params[:search].present? && params[:search].strip != ""
       session[:entreprises_search] = params[:search]
@@ -29,6 +45,10 @@ class PagesController < ApplicationController
     @companies = @searching.result
 
     @arrCompanies = @companies.to_a
+
+
+    @searchies = Entreprise.ransack(params[:q])
+    @products = @searchies.result(distinct: true)
 
   end
 end

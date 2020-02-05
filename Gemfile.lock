@@ -152,6 +152,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.8.0)
+      actionmailer (>= 5.0)
+      activemodel (>= 5.0)
     method_source (0.9.2)
     mime-types (3.3)
       mime-types-data (~> 3.2015)
@@ -321,6 +324,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
+  mail_form
   mysql2 (>= 0.3.18, < 0.5)
   paperclip
   paperclip-cloudinary

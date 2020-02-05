@@ -5,19 +5,21 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
 
-  <body>
-  <%= render 'layouts/menu' %>
-  <%= render 'shared/message' %>
-
-  <div class="container">
-    <%= yield %>
+  <body class="account-page">
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
+      <%= render 'shared/message' %>
+          <%= render 'layouts/menu' %>
+          <%= yield %>
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
   </div>
-
-
+    <%= javascript_include_tag 'slick', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

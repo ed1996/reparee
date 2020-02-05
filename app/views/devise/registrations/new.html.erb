@@ -1,28 +1,63 @@
-<div class="row">
-  <div class="col-md-4 col-md-offset-4 text-center">
+<div class="content" style="min-height: 404px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
 
-    <h2>Inscription client</h2>
+        <!-- Register Content -->
+        <div class="account-content">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 col-lg-6 login-left">
+              <%= image_tag "login-banner.png", :class => "img-fluid" %>
+            </div>
+            <div class="col-md-12 col-lg-6 login-right">
+              <div class="login-header">
+                <h3>Patient Register <a href="doctor-register.html">Are you a Doctor?</a></h3>
+              </div>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "shared/devise_errors" %>
+              <!-- Register Form -->
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "shared/devise_errors" %>
+                <div class="form-group form-focus">
+                  <label class="focus-label">Nom complet</label>
+                  <%= f.text_field :fullname, autofocus: true, class: "form-control floating", placeholder: "Nom complet" %>
+                </div>
+                <div class="form-group form-focus">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control floating", placeholder: "Adresse email" %>
+                  <label class="focus-label">Email</label>
+                </div>
+                <div class="form-group form-focus">
+                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control floating", placeholder: "Créer un mot de passe" %>
+                  <label class="focus-label">Créer un mot de passe</label>
+                </div>
+                <div class="text-right">
+                  <%= link_to 'Vous possèder déjà un compte ?', new_user_session_path, class: 'forgot-link' %>
+                </div>
+                <%= f.submit "Inscription", class: "btn btn-primary btn-block btn-lg login-btn" %>
+                <div class="login-or">
+                  <span class="or-line"></span>
+                  <span class="span-or">or</span>
+                </div>
+                <div class="row form-row social-login">
+                  <div class="col-6">
+                    <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f mr-1"></i> Login</a>
+                  </div>
+                  <div class="col-6">
+                    <a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
+                  </div>
+                </div>
+              <% end %>
 
-      <div class="form-group">
-        <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "Nom complet" %>
+              <!-- /Register Form -->
+
+            </div>
+          </div>
+        </div>
+        <!-- /Register Content -->
+
       </div>
+    </div>
 
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Adresse email" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Créer un mot de passe" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Inscription", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
   </div>
+
 </div>
+<!-- /Page Content -->

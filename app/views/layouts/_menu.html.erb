@@ -1,49 +1,70 @@
-<!-- Static navbar -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Project name</a>
+<nav class="navbar navbar-expand-lg header-nav">
+  <div class="navbar-header">
+    <a id="mobile_btn" href="javascript:void(0);">
+							<span class="bar-icon">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+    </a>
+    <%= link_to root_path, class:"navbar-brand logo" do %>
+      <%= image_tag 'logo-reparee.png', :class => "img-fluid" %>
+    <% end %>
+  </div>
+  <div class="main-menu-wrapper">
+    <div class="menu-header">
+      <a href="index.html" class="menu-logo">
+        <%= image_tag 'logo-reparee.png', :class => "img-fluid" %>
+      </a>
+      <a id="menu_close" class="menu-close" href="javascript:void(0);">
+        <i class="fas fa-times"></i>
+      </a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Accueil', root_path %></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
+    <ul class="main-nav">
+      <li class="active">
+        <%= link_to 'Accueil', root_path %>
+      </li>
+      <li><%= link_to 'Abonnement', new_subscriber_path %></li>
+      <li><%= link_to 'Nos valeurs', features_path %></li>
+      <li><%= link_to 'Equipe', team_path %></li>
+      <li><%= link_to 'FAQ', faq_path %></li>
+      <li><%= link_to 'Contact', new_contact_path %></li>
+      <li class="login-link">
+        <a href="login.html">Login / Signup</a>
+      </li>
+    </ul>
+  </div>
+  <ul class="nav header-navbar-rht">
+    <% if user_signed_in?  %>
+      <div class="main-nav">
+        <li class="has-submenu">
+          <a><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %></a>
+          <ul class="submenu">
+            <li><%= link_to 'Profil', user_path(current_user.id) %></li>
+            <li><%= link_to conversations_path do %> Messages <% end %></li>
+            <li><%= link_to 'Abonnement', new_subscriber_path %></li>
+            <li><%= link_to 'Mes entreprises', entreprises_path %></li>
+            <li><%= link_to 'Mes rendez-vous', vos_rendez_vous_path %></li>
+            <li><%= link_to 'Mes reservations', vos_reservations_path %></li>
+            <li><%= link_to 'Ajout entreprise', new_entreprise_path %></li>
+            <li><%= link_to 'Modifier profil', edit_user_registration_path %></li>
+            <li><%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in?  %>
-          <li><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %></li>
-          <li><%= link_to 'Profil', user_path(current_user.id) %></li>
-          <li><%= link_to conversations_path do %> Messages <% end %></li>
-          <li><%= link_to 'Abonnement', new_subscriber_path %></li>
-          <li><%= link_to 'Mes entreprises', entreprises_path %></li>
-          <li><%= link_to 'Mes rendez-vous', vos_rendez_vous_path %></li>
-          <li><%= link_to 'Mes reservations', vos_reservations_path %></li>
-          <li><%= link_to 'Ajout entreprise', new_entreprise_path %></li>
-          <li><%= link_to 'Modifier profil', edit_user_registration_path %></li>
-          <li><%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'Espace client', new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container-fluid -->
+      </div>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to 'Espace client', new_user_session_path, :class => "nav-link header-login" %>
+      </li>
+    <% end %>
+    <li class="nav-item contact-item">
+      <div class="header-contact-img">
+        <i class="far fa-hospital"></i>
+      </div>
+      <div class="header-contact-detail">
+        <p class="contact-header">Contact</p>
+        <p class="contact-info-header"> +1 315 369 5943</p>
+      </div>
+    </li>
+  </ul>
 </nav>
