@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery-ui
 //= require rails-timeago-all
+//= require bootstrap.min
 //= require bootstrap-sprockets
 //= require toastr
 //= require_tree .
@@ -358,11 +359,3 @@ Version      : 1.0
     $(window).scroll(animateElements);
 
 })(jQuery);
-
-
-
-function toggleAccordion(){
-    this.classList.toggle('active');
-    this.nextElementSibling.classList.toggle('active');
-}
-

@@ -1,158 +1,268 @@
-<div class="panel panel-default">
-  <div class="panel-body">
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
 
-    <!-- Photo principale de l'entreprise -->
-    <div class="row">
-      <div class="col-md-12">
-        <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length > 0 %>
-      </div>
-    </div>
-
-    <br>
-
-    <!-- Informations principales -->
-    <div class="row">
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-3 text-center">
-            <%= image_tag avatar_url(@entreprise.user), class:"img-circle avatar-large" %>
-            <br>
-            <br>
-            <%= @entreprise.user.fullname %>
-          </div>
-          <div class="col-md-9">
-            <h4>Nom de l'entreprise: <%= @entreprise.company_name %></h4>
-            <p>Type d'artisan: <%= @entreprise.artisan_type %></p>
-            <p>Adresse: <%= @entreprise.address %></p>
-            <p>Code naf: <%= @entreprise.code_naf %></p>
-            <p>SIREN: <%= @entreprise.siren %></p>
-            <p>SIRET: <%= @entreprise.siret %></p>
-            <p>Forme juridique: <%= @entreprise.legal_form %></p>
-            <p>Lien web: <%= @entreprise.linkweb %></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <!-- Formulaire de réservation -->
-        <%= render 'reservations/form' %>
-
-      </div>
-    </div>
-
-    <!-- Equipements -->
-    <div class="row">
-      <div class="col-md-2">
-        <p>Moyen de paiement</p>
-      </div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-md-6">
-            <ul class="equipments">
-              <li class="<%= 'text-line-throught' if !@entreprise.is_card %>">Carte de crédit</li>
-              <li class="<%= 'text-line-throught' if !@entreprise.is_cheque %>">Chèque</li>
-              <li class="<%= 'text-line-throught' if !@entreprise.is_cash %>">Espèce</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Caroussel -->
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <% if @photos %>
-              <% @photos.each do |photo| %>
-                <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
-                </ol>
+    <!-- Doctor Widget -->
+    <div class="card">
+      <div class="card-body">
+        <div class="doctor-widget">
+          <div class="doc-info-left">
+            <div class="doctor-img">
+              <%= image_tag @photos[0].image.url(), class:"img-fluid" if @photos.length > 0 %>
+            </div>
+            <div class="doc-info-cont">
+              <h4 class="doc-name">Dr. Darren Elder</h4>
+              <p class="doc-speciality"><%= image_tag 'maps-and-location.png', :class => "img-fluid" %><%= @entreprise.address %></p>
+              <% if @entreprise.artisan_type == 'Plombier' %>
+                <h5 class="doc-department"><%= image_tag 'repair.png', :class => "img-fluid" %>Plombier</h5>
+              <% elsif @entreprise.artisan_type == 'Serrurier' %>
+                <h5 class="doc-department"><%= image_tag 'password.png', :class => "img-fluid" %>Serrurier</h5>
               <% end %>
-          <% end %>
+              <div class="rating">
+                <span class="d-inline-block average-rating">(35)</span>
+              </div>
+              <div class="clinic-details">
+                <p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA - <a href="javascript:void(0);">Get Directions</a></p>
+              </div>
+              <div class="clinic-services">
+                <span>Dental Fillings</span>
+                <span>Teeth Whitneing</span>
+              </div>
+            </div>
+          </div>
+          <div class="doc-info-right">
+            <div class="clini-infos">
+              <ul>
+                <li><i class="far fa-thumbs-up"></i> 99%</li>
+                <li><i class="far fa-comment"></i> 35 Feedback</li>
+                <li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
+                <li><i class="far fa-money-bill-alt"></i> $100 per hour </li>
+              </ul>
+            </div>
+            <div class="doctor-action">
+              <a href="javascript:void(0)" class="btn btn-white fav-btn">
+                <i class="far fa-bookmark"></i>
+              </a>
+              <a href="chat.html" class="btn btn-white msg-btn">
+                <i class="far fa-comment-alt"></i>
+              </a>
+              <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
+                <i class="fas fa-phone"></i>
+              </a>
+              <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#video_call">
+                <i class="fas fa-video"></i>
+              </a>
+            </div>
+            <div class="clinic-booking">
+              <a class="apt-btn" href="booking.html">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Doctor Widget -->
 
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <% if @photos %>
-              <% @photos.each do |photo| %>
-                <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-                  <%= image_tag photo.image.url() %>
+    <!-- Doctor Details Tab -->
+    <div class="card">
+      <div class="card-body pt-0">
+
+        <!-- Tab Menu -->
+        <nav class="user-tabs mb-4">
+          <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+            <li class="nav-item">
+              <a class="nav-link active" href="#doc_overview" data-toggle="tab">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#doc_locations" data-toggle="tab">Locations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#doc_reviews" data-toggle="tab">Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#doc_business_hours" data-toggle="tab">Business Hours</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /Tab Menu -->
+
+        <!-- Tab Content -->
+        <div class="tab-content pt-0">
+
+          <!-- Overview Content -->
+          <div role="tabpanel" id="doc_overview" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-lg-9">
+
+                <!-- About Details -->
+                <div class="widget about-widget">
+                  <h4 class="widget-title">About Me</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
-              <% end %>
-            <% end %>
+                <!-- /About Details -->
+
+                <!-- Services List -->
+                <div class="service-list">
+                  <h4>Services</h4>
+                  <ul class="clearfix">
+                    <li>Tooth cleaning </li>
+                    <li>Root Canal Therapy</li>
+                    <li>Implants</li>
+                    <li>Composite Bonding</li>
+                    <li>Fissure Sealants</li>
+                    <li>Surgical Extractions</li>
+                  </ul>
+                </div>
+                <!-- /Services List -->
+
+                <!-- Specializations List -->
+                <div class="service-list">
+                  <h4>Specializations</h4>
+                  <ul class="clearfix">
+                    <li>Children Care</li>
+                    <li>Dental Care</li>
+                    <li>Oral and Maxillofacial Surgery </li>
+                    <li>Orthodontist</li>
+                    <li>Periodontist</li>
+                    <li>Prosthodontics</li>
+                  </ul>
+                </div>
+                <!-- /Specializations List -->
+
+              </div>
+            </div>
+          </div>
+          <!-- /Overview Content -->
+
+          <!-- Locations Content -->
+          <div role="tabpanel" id="doc_locations" class="tab-pane">
+
+            <!-- Google maps -->
+            <div class="row">
+              <div class="col-md-12">
+                <div id="map"></div>
+                <style>
+                  /* Set the size of the div element that contains the map */
+                  #map {
+                    height: 400px;  /* The height is 400 pixels */
+                    width: 100%;  /* The width is the width of the web page */
+                  }
+                </style>
+
+                <script>
+                    function initMap() {
+                        var uluru = {lat: <%= @entreprise.latitude %>, lng: <%= @entreprise.longitude %>};
+                        var map = new google.maps.Map(
+                            document.getElementById('map'), {zoom: 15, center: uluru});
+                        var marker = new google.maps.Marker({position: uluru, map: map});
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7nfC1RXPay13Icx6spnqH3uXdITt5GRI&callback=initMap">
+                </script>
+
+              </div>
+            </div>
 
           </div>
+          <!-- /Locations Content -->
 
-          <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Précédent</span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Suivant</span>
-          </a>
+          <!-- Reviews Content -->
+          <div role="tabpanel" id="doc_reviews" class="tab-pane">
+
+            <!-- Reviews -->
+            <div class="row">
+              <div class="col-md-12">
+                <h3><%= pluralize(@reviews.count, 'commentaires') %> <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
+                <div class="container">
+                  <div>
+                    <%= render 'reviews/form' if @booked && !@hasReview %>
+                  </div>
+                  <div>
+                    <%= render 'reviews/list' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /Reviews Content -->
+
+          <!-- Business Hours Content -->
+          <div role="tabpanel" id="doc_business_hours" class="tab-pane">
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+
+                <!-- Business Hours Widget -->
+                <div class="widget business-widget">
+                  <div class="widget-content">
+                    <div class="listing-hours">
+                      <div class="listing-day current">
+                        <div class="day">Today <span>5 Nov 2019</span></div>
+                        <div class="time-items">
+                          <span class="open-status"><span class="badge bg-success-light">Open Now</span></span>
+                          <span class="time">07:00 AM - 09:00 PM</span>
+                        </div>
+                      </div>
+                      <div class="listing-day">
+                        <div class="day">Monday</div>
+                        <div class="time-items">
+                          <span class="time">07:00 AM - 09:00 PM</span>
+                        </div>
+                      </div>
+                      <div class="listing-day">
+                        <div class="day">Tuesday</div>
+                        <div class="time-items">
+                          <span class="time">07:00 AM - 09:00 PM</span>
+                        </div>
+                      </div>
+                      <div class="listing-day">
+                        <div class="day">Wednesday</div>
+                        <div class="time-items">
+                          <span class="time">07:00 AM - 09:00 PM</span>
+                        </div>
+                      </div>
+                      <div class="listing-day">
+                        <div class="day">Thursday</div>
+                        <div class="time-items">
+                          <span class="time">07:00 AM - 09:00 PM</span>
+                        </div>
+                      </div>
+                      <div class="listing-day">
+                        <div class="day">Friday</div>
+                        <div class="time-items">
+                          <span class="time">07:00 AM - 09:00 PM</span>
+                        </div>
+                      </div>
+                      <div class="listing-day">
+                        <div class="day">Saturday</div>
+                        <div class="time-items">
+                          <span class="time">07:00 AM - 09:00 PM</span>
+                        </div>
+                      </div>
+                      <div class="listing-day closed">
+                        <div class="day">Sunday</div>
+                        <div class="time-items">
+                          <span class="time"><span class="badge bg-danger-light">Closed</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Business Hours Widget -->
+
+              </div>
+            </div>
+          </div>
+          <!-- /Business Hours Content -->
+
         </div>
       </div>
     </div>
-
-    <br>
-    <hr>
-
-    <!-- Reviews -->
-    <div class="row">
-      <div class="col-md-12">
-        <h3><%= pluralize(@reviews.count, 'commentaires') %> <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
-        <div class="container">
-          <div>
-            <%= render 'reviews/form' if @booked && !@hasReview %>
-          </div>
-          <div>
-            <%= render 'reviews/list' %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-<br>
-
-    <!-- Google maps -->
-    <div class="row">
-      <div class="col-md-12">
-        <div id="map"></div>
-        <style>
-          /* Set the size of the div element that contains the map */
-          #map {
-            height: 400px;  /* The height is 400 pixels */
-            width: 100%;  /* The width is the width of the web page */
-          }
-        </style>
-
-          <script>
-             function initMap() {
-             var uluru = {lat: <%= @entreprise.latitude %>, lng: <%= @entreprise.longitude %>};
-          var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 15, center: uluru});
-          var marker = new google.maps.Marker({position: uluru, map: map});
-          }
-          </script>
-          <script async defer
-           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7nfC1RXPay13Icx6spnqH3uXdITt5GRI&callback=initMap">
-                                                                                          </script>
-
-      </div>
-    </div>
-
-
+    <!-- /Doctor Details Tab -->
 
   </div>
 </div>
+<!-- /Page Content -->
 
-<script>
-    $('#average_rating').raty({
-        path: '/assets',
-        readOnly: true,
-        score: <%= @entreprise.average_rating %>
-    });
-</script>
+
+

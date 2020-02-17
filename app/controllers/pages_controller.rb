@@ -23,13 +23,13 @@ class PagesController < ApplicationController
 
   def search
     if params[:search].present? && params[:search].strip != ""
-      session[:entreprises_search] = params[:search]
+      session[:company_search] = params[:search]
     end
 
     arrResult = Array.new
 
-    if session[:entreprises_search] && session[:entreprises_search] != ""
-      @company_address = Entreprise.where(active: true, artisan_type: params[:artisan_type]).near(session[:entreprises_search], 5, order:'distance')
+    if session[:company_search] && session[:company_search] != ""
+      @company_address = Entreprise.where(active: true, artisan_type: params[:artisan_type]).near(session[:company_search], 5, order:'distance')
     else
       @company_address = Entreprise.where(active: true).all
     end
@@ -41,10 +41,6 @@ class PagesController < ApplicationController
 
 
 
-    @searching = Entreprise.ransack(params[:q])
-    @companies = @searching.result
-
-    @arrCompanies = @companies.to_a
 
 
     @searchies = Entreprise.ransack(params[:q])

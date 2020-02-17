@@ -1,93 +1,122 @@
-<div id="wrapper">
-  <div id="article">
+
+
     <div class="row">
-      <div class="col-md-12">
-        <%= search_form_for @searching, url: search_path do |f| %>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.text_field :address_cont, placeholder:"Ville", class:"form-control" %>
+      <% if @arrReparee.empty? %>
+        Aucuns artisans actuellement enregistré
+      <% else %>
+        <% @arrReparee.each do |entreprise| %>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading preview">
+                <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0 %>
+              </div>
+              <div class="panel-body">
+                <%= link_to entreprise.company_name, entreprise %>
+              </div>
             </div>
-            <div class="col-md-3">
-              <%= f.select :artisan_type_eq, [["Plombier","Plombier"],["Serrurier","Serrurier"]], id: "artisan_type", prompt:"A sélectionner...", class:"form-control" %>
-            </div>
-          </div>
-          <div class="row">
-            <%= f.submit "Rechercher", class:"btn btn-primary" %>
           </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
-  </div>
 
-  <hr><hr><hr>
+    <hr><hr><hr>
 
+<!-- Page Content -->
+<div class="content">
+  <div class="container-fluid">
 
-  <div id="article">
     <div class="row">
-      <div class="col-md-12">
-        <%= search_form_for @searchies, url: search_path do |f| %>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.text_field :address_cont, placeholder:"Ville", class:"form-control" %>
-            </div>
-            <div class="col-md-3">
+      <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+
+        <!-- Search Filter -->
+        <div class="card search-filter">
+          <div class="card-header">
+            <h4 class="card-title mb-0">Recherche d'artisan</h4>
+          </div>
+
+
+          <%= search_form_for @searchies, url: search_path do |f| %>
+            <div class="card-body">
+              <div class="filter-widget">
+                  <%= f.text_field :address_cont, placeholder:"Ville", class:"form-control" %>
+              </div>
               <%= f.select :artisan_type_eq, [["Plombier","Plombier"],["Serrurier","Serrurier"]], id: "artisan_type", prompt:"A sélectionner...", class:"form-control" %>
+              <div class="btn-search">
+                <%= f.submit "Rechercher", class:"btn btn-block" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!-- /Search Filter -->
+
+      </div>
+
+      <div class="col-md-12 col-lg-8 col-xl-9">
+
+        <!-- Doctor Widget -->
+        <% if @products.empty? %>
+          Aucuns artisans actuellement enregistré
+        <% else %>
+          <% @products.each do |entreprise| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="doctor-widget">
+              <div class="doc-info-left">
+                <div class="doctor-img">
+                  <a href="doctor-profile.html">
+                    <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0 %>
+                  </a>
+                </div>
+                <div class="doc-info-cont">
+                  <h4 class="doc-name"><%= link_to entreprise.company_name, entreprise %></h4>
+                  <p class="doc-speciality"><%= image_tag 'maps-and-location.png', :class => "img-fluid" %><%= entreprise.address %></p>
+                  <% if entreprise.artisan_type == 'Plombier' %>
+                  <h5 class="doc-department"><%= image_tag 'repair.png', :class => "img-fluid" %>Plombier</h5>
+                    <% else %>
+                    <h5 class="doc-department"><%= image_tag 'password.png', :class => "img-fluid" %>Serrurier</h5>
+                    <% end %>
+                  <div class="rating">
+                    <!--<span class="d-inline-block average-rating">(17)</span>-->
+                  </div>
+                  <div class="clinic-services">
+                    <% if entreprise.artisan_type == 'Plombier' %>
+                      <span>Dépannage de fuite</span>
+                      <span>Débouchage de canalisation</span>
+                      <span>Remplacement de lavabo</span>
+                    <% elsif entreprise.artisan_type == 'Serrurier' %>
+                      <span>Ouverture de Porte Fermée</span>
+                      <span>Remplacement de Serrure</span>
+                      <span>Installation Verrou de sécurité</span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="doc-info-right">
+                <div class="clini-infos">
+                  <ul>
+                    <li><i class="far fa-thumbs-up"></i> 98%</li>
+                    <li><i class="far fa-comment"></i> <%= entreprise.reviews.count %> Feedback</li>
+                    <li><%= image_tag 'phone.png', :class => 'img-fluid' %> = <%= entreprise.phone %></li>
+                  </ul>
+                </div>
+                <div class="clinic-booking">
+                  <%= link_to 'Voir le profil', entreprise, :class => "apt-btn" %>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <%= f.submit "Rechercher", class:"btn btn-primary" %>
-          </div>
+        </div>
+
+          <% end %>
         <% end %>
+        <!-- /Doctor Widget -->
+
+
+
       </div>
     </div>
+
   </div>
-</div>
-
-<hr>
-
-<div class="row">
-  <% if @arrReparee.empty? %>
-    Aucuns artisans actuellement enregistré
-  <% else %>
-    <% @arrReparee.each do |entreprise| %>
-      <div class="col-md-4">
-        <div class="panel panel-default">
-          <div class="panel-heading preview">
-            <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0 %>
-          </div>
-          <div class="panel-body">
-            <%= link_to entreprise.company_name, entreprise %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-
-
-
-
-<hr><hr><hr>
-
-<% if @products.empty? %>
-  Aucuns artisans actuellement enregistré
-<% else %>
-  <% @products.each do |entreprise| %>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading preview">
-          <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0 %>
-        </div>
-        <div class="panel-body">
-          <%= link_to entreprise.company_name, entreprise %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-
-</div>
 
 </div>
 <!-- /Page Content -->
