@@ -1,6 +1,62 @@
-<%= @user.email %>
-<p><%= @user.fullname %></p>
-<%= image_tag avatar_url(@user) %>
+<div class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 theiaStickySidebar">
+
+        <!-- Profile Sidebar -->
+        <div class="profile-sidebar">
+          <div class="widget-profile pro-widget-content">
+            <div class="profile-info-widget">
+              <a href="#" class="booking-doc-img">
+                <%= image_tag avatar_url(@user) %>
+              </a>
+              <div class="profile-det-info">
+                <h3><%= @user.fullname %></h3>
+
+                <div class="patient-details">
+                  <h5 class="mb-0"><%= @user.email %></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-widget">
+            <nav class="dashboard-menu">
+              <ul>
+                <li>
+                  <%= link_to conversations_path do %> Messages <% end %>
+                </li>
+                <li>
+                  <%= link_to 'Abonnement', new_subscriber_path %>
+                </li>
+                <li>
+                  <%= link_to 'Mes entreprises', entreprises_path %>
+                </li>
+                <li>
+                  <%= link_to 'Mes rendez-vous', vos_rendez_vous_path %>
+                </li>
+                <li>
+                  <%= link_to 'Mes reservations', vos_reservations_path %>
+                </li>
+                <li>
+                  <%= link_to 'Ajout entreprise', new_entreprise_path %>
+                </li>
+                <li>
+                  <%= link_to 'Modifier profil', edit_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /Profile Sidebar -->
+
+      </div>
+
+    </div>
+
 
 <% if current_user != @user %>
   <div class="row-space-2">
@@ -21,20 +77,24 @@
 
 <h4>Evaluation</h4>
 <br>
-<% @entreprises.each do |entreprise| %>
-  <% if !entreprise.reviews.blank? %>
-    <% entreprise.reviews.each do |review| %>
-      <div class="row">
-        <div class="col-md-2 text-center">
-          <%= image_tag avatar_url(review.user), class:"img-circle avatar-medium" %><br>
-          <%= review.user.fullname %>
+  <% @entreprises.each do |entreprise| %>
+    <% if !entreprise.reviews.blank? %>
+      <% entreprise.reviews.each do |review| %>
+        <div class="row">
+          <div class="col-md-2 text-center">
+            <%= image_tag avatar_url(review.user), class:"img-circle avatar-medium" %><br>
+            <%= review.user.fullname %>
+          </div>
+          <div class="col-md-10">
+            <%= link_to entreprise.company_name, entreprise %><br>
+            <%= review.comment %><br>
+            <%= review.created_at.strftime("(%d/%m/%y)") %>
+          </div>
         </div>
-        <div class="col-md-10">
-          <%= link_to entreprise.company_name, entreprise %><br>
-          <%= review.comment %><br>
-          <%= review.created_at.strftime("(%d/%m/%y)") %>
-        </div>
-      </div>
+    <% end %>
   <% end %>
 <% end %>
-<% end %>
+
+
+  </div>
+</div>

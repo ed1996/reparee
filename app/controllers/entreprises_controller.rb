@@ -61,7 +61,7 @@ class EntreprisesController < ApplicationController
   end
 
   def entreprise_params
-    params.require(:entreprise).permit(:artisan_type, :company_name, :code_naf, :siren, :siret, :address, :phone, :legal_form, :linkweb, :is_card, :is_cheque, :is_cash, :active)
+    params.require(:entreprise).permit(:artisan_type, :company_name, :code_naf, :siren, :siret, :address, :phone, :legal_form, :linkweb, :is_card, :is_cheque, :is_cash, :active, :summary)
   end
 
   def require_same_user

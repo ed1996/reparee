@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200205215134) do
+ActiveRecord::Schema.define(version: 20200229150530) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20200205215134) do
     t.datetime "updated_at", null: false
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
+    t.text "summary"
     t.index ["user_id"], name: "index_entreprises_on_user_id"
   end
 
@@ -138,6 +139,7 @@ ActiveRecord::Schema.define(version: 20200205215134) do
     t.datetime "confirmation_sent_at"
     t.boolean "subscribed"
     t.string "stripeid"
+    t.boolean "premium"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

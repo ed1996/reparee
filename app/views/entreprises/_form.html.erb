@@ -1,88 +1,122 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    Enregistrer votre entreprise et augmentez vos revenus
-  </div>
-  <div class="panel-body">
-    <div class="container">
+<!-- Page Content -->
+<div class="content">
+  <h1 class="titre-faq">Ajouter votre entreprise sur Reparee</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Profile Sidebar -->
       <%= form_for @entreprise, html: {multipart: true} do |f| %>
-          <div class="row">
-            <div class="col-md-4 select">
-              <div class="form-group">
-                <label>Type d'entreprise</label>
-                <%= f.select :artisan_type, [["Plombier","Plombier"],["Serrurier","Serrurier"]], id: "artisan_type", prompt:"A sélectionner...", class:"form-control" %>
-              </div>
-            </div>
-          </div>
 
-        <div class="row">
-          <div class="form-group">
-            <label>Nom de votre entreprise</label>
-            <%= f.text_field :company_name, placeholder:"Nom de la société", class:"form-control" %>
+      <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="card">
+          <div class="card-body">
+
+            <!-- Profile Settings Form -->
+
+              <form>
+                <div class="row form-row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label>Nom de votre entreprise</label>
+                      <%= f.text_field :company_name, placeholder:"Nom de la société", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label>Type d'entreprise</label>
+                      <%= f.select :artisan_type, [["Plombier","Plombier"],["Serrurier","Serrurier"]], id: "artisan_type", prompt:"A sélectionner...", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label>Forme juridique</label>
+                      <%= f.text_field :legal_form, placeholder:"Forme juridique", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label>Téléphone</label>
+                      <%= f.text_field :phone, placeholder:"Téléphone", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label>Adresse</label>
+                      <%= f.text_field :address, placeholder:"Siège social de la société", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <span class="btn btn-default btn-file">
+                        Téléchargez vos photos !
+                      </span>
+                      <%= file_field_tag "images[]", type: :file, multiple: true %>
+                    </div>
+                    <div id="photos"><%= render 'photos/list' %></div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label>SIREN</label>
+                      <%= f.text_field :siren, placeholder:"SIREN", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label>SIRET</label>
+                      <%= f.text_field :siret, placeholder:"SIRET", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label>Code NAF</label>
+                      <%= f.text_field :code_naf, placeholder:"Code NAF", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label>Lien site internet</label>
+                      <%= f.text_field :linkweb, placeholder:"http://monsite.com", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label>Description</label>
+                      <%= f.text_field :summary, placeholder:"Description de votre entreprise", class:"form-control" %>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <%= f.check_box :is_card %>Carte bancaire
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <%= f.check_box :is_cheque %>Chèque
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <%= f.check_box :is_cash %>Espèce
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <%= f.check_box :active %>Entreprise active
+                    </div>
+                  </div>
+                </div>
+                <div class="submit-section">
+                  <%= f.submit "Je valide mon entreprise", class:"btn btn-primary submit-btn" %>
+                </div>
+              </form>
+
+      <% end %>
+            <!-- /Profile Settings Form -->
+
           </div>
         </div>
-        <div class="row">
-          <div class="form-group">
-            <label>Adresse</label>
-            <%= f.text_field :address, placeholder:"Siège social de la société", class:"form-control" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group">
-            <label>Téléphone</label>
-            <%= f.text_field :phone, placeholder:"Téléphone", class:"form-control" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group">
-            <label>SIREN</label>
-            <%= f.text_field :siren, placeholder:"SIREN", class:"form-control" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group">
-            <label>SIRET</label>
-            <%= f.text_field :siret, placeholder:"SIRET", class:"form-control" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group">
-            <label>Forme juridique</label>
-            <%= f.text_field :legal_form, placeholder:"Forme juridique", class:"form-control" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <span class="btn btn-default btn-file">
-                Téléchargez vos photos !
-                <%= file_field_tag "images[]", type: :file, multiple: true %>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div id="photos"><%= render 'photos/list' %></div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= f.check_box :is_card %>Carte bancaire
-            </div>
-            <div class="form-group">
-              <%= f.check_box :is_cheque %>Chèque
-            </div>
-            <div class="form-group">
-              <%= f.check_box :is_cash %>Espèce
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group">
-            <%= f.check_box :active %>Entreprise active
-          </div>
-        </div>
-        <div class="actions">
-          <%= f.submit "Je valide mon entreprise", class:"btn btn-primary" %>
-        </div>
-        <% end %>
+      </div>
     </div>
   </div>
+
 </div>
+<!-- /Page Content -->

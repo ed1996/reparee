@@ -1,8 +1,6 @@
-<%= form_tag subscriber_path(1), method: :put do %>
-
-  <!-- Pricing Tables
-         ================================================== -->
-
+<h1 class="text-uppercase">Vous devez être abonnés à la plateforme pour inscrire votre entreprise</h1>
+<br><br><br>
+<div class="container">
   <!-- Row / Start -->
   <div class="row">
 
@@ -14,7 +12,7 @@
         <div class="plan">
 
           <div class="plan-price">
-            <h3>Basic</h3>
+            <h3>Basique</h3>
             <span class="value">Gratuit</span>
             <span class="period">Gratuit pour les particuliers qui veulent prendre rendez-vous avec une entreprise</span>
           </div>
@@ -52,11 +50,7 @@
               <li>24/7 Support</li>
             </ul>
             <div class="clinic-booking">
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button abonnement-btn"
-                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                      data-description="Abonnement mensuel"
-                      data-amount="5900"
-                      data-locale="auto"></script><span>59.00€ par mois</span>
+              <%= link_to 'Souscrire', new_subscriber_path, :class => "abonnement-btn" %>
             </div>
           </div>
         </div>
@@ -87,4 +81,5 @@
     </div>
   </div>
   <!-- Row / End -->
-<% end %>
+</div>
+<br><br><br>

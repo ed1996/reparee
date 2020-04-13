@@ -11,7 +11,7 @@
               <%= image_tag @photos[0].image.url(), class:"img-fluid" if @photos.length > 0 %>
             </div>
             <div class="doc-info-cont">
-              <h4 class="doc-name">Dr. Darren Elder</h4>
+              <h4 class="doc-name"><%= @entreprise.company_name %></h4>
               <p class="doc-speciality"><%= image_tag 'maps-and-location.png', :class => "img-fluid" %><%= @entreprise.address %></p>
               <% if @entreprise.artisan_type == 'Plombier' %>
                 <h5 class="doc-department"><%= image_tag 'repair.png', :class => "img-fluid" %>Plombier</h5>
@@ -21,40 +21,30 @@
               <div class="rating">
                 <span class="d-inline-block average-rating">(35)</span>
               </div>
-              <div class="clinic-details">
-                <p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA - <a href="javascript:void(0);">Get Directions</a></p>
-              </div>
               <div class="clinic-services">
-                <span>Dental Fillings</span>
-                <span>Teeth Whitneing</span>
+                <% if @entreprise.artisan_type == "Plombier" %>
+                  <span>Dépannage de fuite</span>
+                  <span>Débouchage de canalisation</span>
+                  <span>Remplacement de lavabo</span>
+                <% elsif @entreprise.artisan_type == 'Serrurier' %>
+                  <span>Ouverture de Porte Fermée</span>
+                  <span>Remplacement de Serrure</span>
+                  <span>Installation Verrou de sécurité</span>
+                <% end %>
               </div>
             </div>
           </div>
           <div class="doc-info-right">
             <div class="clini-infos">
               <ul>
-                <li><i class="far fa-thumbs-up"></i> 99%</li>
-                <li><i class="far fa-comment"></i> 35 Feedback</li>
-                <li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
-                <li><i class="far fa-money-bill-alt"></i> $100 per hour </li>
+                <li><i class="far fa-thumbs-up"></i> 98%</li>
+                <li><i class="far fa-comment"></i> <%= @entreprise.reviews.count %> Avis</li>
+                <li><%= image_tag 'phone.png', :class => 'img-fluid' %> = <%= @entreprise.phone %></li>
+                <li><%= image_tag 'internet.png', :class => 'img-fluid' %> = <%= @entreprise.linkweb %></li>
               </ul>
             </div>
-            <div class="doctor-action">
-              <a href="javascript:void(0)" class="btn btn-white fav-btn">
-                <i class="far fa-bookmark"></i>
-              </a>
-              <a href="chat.html" class="btn btn-white msg-btn">
-                <i class="far fa-comment-alt"></i>
-              </a>
-              <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
-                <i class="fas fa-phone"></i>
-              </a>
-              <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#video_call">
-                <i class="fas fa-video"></i>
-              </a>
-            </div>
             <div class="clinic-booking">
-              <a class="apt-btn" href="booking.html">Book Appointment</a>
+              <a class="apt-btn" href="#booking" data-toggle="tab">Rendez-vous</a>
             </div>
           </div>
         </div>
@@ -70,16 +60,19 @@
         <nav class="user-tabs mb-4">
           <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
             <li class="nav-item">
-              <a class="nav-link active" href="#doc_overview" data-toggle="tab">Overview</a>
+              <a class="nav-link active" href="#doc_overview" data-toggle="tab">Détails</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#doc_locations" data-toggle="tab">Locations</a>
+              <a class="nav-link" href="#doc_locations" data-toggle="tab">Localisation</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#doc_reviews" data-toggle="tab">Reviews</a>
+              <a class="nav-link" href="#doc_reviews" data-toggle="tab">Avis</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#doc_business_hours" data-toggle="tab">Business Hours</a>
+              <a class="nav-link" href="#doc_business_hours" data-toggle="tab">Horaires</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#galerie" data-toggle="tab">Galerie</a>
             </li>
           </ul>
         </nav>
@@ -95,8 +88,16 @@
 
                 <!-- About Details -->
                 <div class="widget about-widget">
-                  <h4 class="widget-title">About Me</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <h4 class="widget-title">Description</h4>
+                  <p><%= @entreprise.summary %></p>
+                  <h4>Fomre juridique :</h4>
+                  <p><%= @entreprise.legal_form %></p>
+                  <h4>SIREN :</h4>
+                  <p><%= @entreprise.siren %></p>
+                  <h4>SIRET :</h4>
+                  <p><%= @entreprise.siret %></p>
+                  <h4>Code NAF :</h4>
+                  <p><%= @entreprise.code_naf %></p>
                 </div>
                 <!-- /About Details -->
 
@@ -104,29 +105,18 @@
                 <div class="service-list">
                   <h4>Services</h4>
                   <ul class="clearfix">
-                    <li>Tooth cleaning </li>
-                    <li>Root Canal Therapy</li>
-                    <li>Implants</li>
-                    <li>Composite Bonding</li>
-                    <li>Fissure Sealants</li>
-                    <li>Surgical Extractions</li>
+                    <li>installation de sanitaire</li>
+                    <li>débouchage de canalisation</li>
+                    <li>détection de fuite d'eau</li>
+                    <li>dépannage de chaudière</li>
+                    <li>dépannage ballon d'eau chaude</li>
+                    <li>dépannage de canalisation</li>
+                    <li>débouchage d'évier</li>
+                    <li>installation de wc</li>
+                    <li>fuite de robinet</li>
                   </ul>
                 </div>
                 <!-- /Services List -->
-
-                <!-- Specializations List -->
-                <div class="service-list">
-                  <h4>Specializations</h4>
-                  <ul class="clearfix">
-                    <li>Children Care</li>
-                    <li>Dental Care</li>
-                    <li>Oral and Maxillofacial Surgery </li>
-                    <li>Orthodontist</li>
-                    <li>Periodontist</li>
-                    <li>Prosthodontics</li>
-                  </ul>
-                </div>
-                <!-- /Specializations List -->
 
               </div>
             </div>
@@ -196,13 +186,6 @@
                 <div class="widget business-widget">
                   <div class="widget-content">
                     <div class="listing-hours">
-                      <div class="listing-day current">
-                        <div class="day">Today <span>5 Nov 2019</span></div>
-                        <div class="time-items">
-                          <span class="open-status"><span class="badge bg-success-light">Open Now</span></span>
-                          <span class="time">07:00 AM - 09:00 PM</span>
-                        </div>
-                      </div>
                       <div class="listing-day">
                         <div class="day">Monday</div>
                         <div class="time-items">
@@ -255,10 +238,62 @@
           </div>
           <!-- /Business Hours Content -->
 
+          <!-- Business Hours Content -->
+          <div role="tabpanel" id="booking" class="tab-pane">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- Formulaire de réservation -->
+                <%= render 'reservations/form' %>
+              </div>
+            </div>
+          </div>
+          <!-- /Business Hours Content -->
+
+          <div role="tabpanel" id="galerie" class="tab-pane">
+            <!-- Caroussel -->
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <% if @photos %>
+                    <% @photos.each do |photo| %>
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                      </ol>
+                    <% end %>
+                  <% end %>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <% if @photos %>
+                      <% @photos.each do |photo| %>
+                        <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                          <%= image_tag photo.image.url() %>
+                        </div>
+                      <% end %>
+                    <% end %>
+
+                  </div>
+
+                  <!-- Left and right controls -->
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Précédent</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Suivant</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
     <!-- /Doctor Details Tab -->
+
 
   </div>
 </div>

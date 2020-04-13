@@ -1,1 +1,13 @@
-<%= render 'form' %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <% if current_user.subscribed? %>
+          <%= render 'form' %>
+        <% else %>
+          <h2>Vous devez être abonnés à la plateforme pour inscrire votre entreprise</h2>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

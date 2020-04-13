@@ -1,4 +1,4 @@
-<%= form_tag subscriber_path(1), method: :put do %>
+<%= form_tag premium_path(1), method: :put do %>
 
   <!-- Pricing Tables
          ================================================== -->
@@ -40,6 +40,32 @@
           </div>-->
 
           <div class="plan-price">
+            <h3>Premium</h3>
+            <span class="value">189€</span>
+            <span class="period">Ajouter autant d'entreprises que vous voulez</span>
+          </div>
+          <div class="plan-features">
+            <ul>
+              <li>Entreprise illimitées</li>
+              <li>Accès à vie</li>
+              <li>Accessible directement dans les résultats de recherche</li>
+              <li>24/7 Support</li>
+            </ul>
+            <div class="clinic-booking">
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button abonnement-btn"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-description="Abonnement mensuel"
+                      data-amount="18900"
+                      data-locale="auto"></script><span>189.00€ par mois</span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Plan #3 -->
+        <div class="plan">
+
+          <div class="plan-price">
             <h3>Professionnel</h3>
             <span class="value">59€</span>
             <span class="period">Abonnez-vous et inscrivez votre entreprise directement</span>
@@ -52,33 +78,7 @@
               <li>24/7 Support</li>
             </ul>
             <div class="clinic-booking">
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button abonnement-btn"
-                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                      data-description="Abonnement mensuel"
-                      data-amount="5900"
-                      data-locale="auto"></script><span>59.00€ par mois</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Plan #3 -->
-        <div class="plan">
-
-          <div class="plan-price">
-            <h3>Premium</h3>
-            <span class="value">189€</span>
-            <span class="period">Ajouter autant d'entreprises que vous voulez</span>
-          </div>
-
-          <div class="plan-features">
-            <ul>
-              <li>Entreprise illimitées</li>
-              <li>Accès à vie</li>
-              <li>Accessible directement dans les résultats de recherche</li>
-              <li>24/7 Support</li>
-            </ul>
-            <div class="clinic-booking">
-              <%= link_to 'Souscrire', new_premium_path, :class => "abonnement-btn" %>
+              <%= link_to 'Souscrire', new_subscriber_path, :class => "abonnement-btn" %>
             </div>
           </div>
         </div>
