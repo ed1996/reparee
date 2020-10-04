@@ -14,7 +14,6 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery.slick
-//= require initialize
 //= require rails-timeago-all
 //= require bootstrap-sprockets
 //= require toastr
