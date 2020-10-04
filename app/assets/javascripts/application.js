@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery-ui
-//= require slick
 //= require rails-timeago-all
 //= require bootstrap-sprockets
 //= require toastr
