@@ -1,107 +1,161 @@
+<!-- Hero Start -->
+<section class="bg-half bg-light d-table w-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <div class="page-next-level">
+          <h4 class="title">Contactez-nous</h4>
+          <div class="page-next">
+            <nav aria-label="breadcrumb" class="d-inline-block">
+              <ul class="breadcrumb bg-white rounded shadow mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Reparee</a></li>
+                <li class="breadcrumb-item"><a href="#">Page</a></li>
+                <li class="breadcrumb-item"><a href="#">Contact</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact One</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>  <!--end col-->
+    </div><!--end row-->
+  </div> <!--end container-->
+</section><!--end section-->
+<!-- Hero End -->
 
-<!-- Content
-================================================== -->
-
-<!-- Map Container -->
-<div class="contact-map margin-bottom-60">
-
-  <!-- Google Maps -->
-  <div id="singleListingMap-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167998.10803373056!2d2.206977064368058!3d48.858774103123785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1580936720010!5m2!1sfr!2sfr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+<!-- Shape Start -->
+<div class="position-relative">
+  <div class="shape overflow-hidden text-white">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+    </svg>
   </div>
-  <!-- Google Maps / End -->
-
-  <!-- Office -->
-  <div class="address-box-container">
-    <div class="address-container" data-background-image="images/our-office.jpg">
-      <div class="office-address">
-        <h3>Nos bureaux</h3>
-        <ul>
-          <li>84 avenue de la république</li>
-          <li>Paris</li>
-          <li>Téléphone : 06.98.05.87.88 </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!-- Office / End -->
-
 </div>
-<div class="clearfix"></div>
-<!-- Map Container / End -->
-<br><br><br>
+<!--Shape End-->
 
-<!-- Container / Start -->
-<div class="container">
-
-  <div class="row">
-
-    <!-- Contact Details -->
-    <div class="col-md-4">
-
-      <h1 class="headline margin-bottom-30">Contactez-nous afin d'en savoir plus sur Reparee</h1>
-
-      <!-- Contact Details -->
-      <div class="sidebar-textbox">
-        <p>Notre équipe va se charger de répondre à vos questions dans le meilleur délai.</p>
-
-        <!--<ul class="contact-details">
-          <li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>(123) 123-456 </span></li>
-          <li><i class="im im-icon-Fax"></i> <strong>Fax:</strong> <span>(123) 123-456 </span></li>
-          <li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.example.com</a></span></li>
-          <li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">office@example.com</a></span></li>
-        </ul>-->
-      </div>
-
-    </div>
-
-    <!-- Contact Form -->
-    <div class="col-md-12">
-
-      <section id="contact">
-        <h4 class="headline margin-bottom-35">Contact</h4>
-
-        <div id="contact-message"></div>
-
-        <%= form_for @contact do |f| %>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div>
-                <%= f.text_field :name, required: true, placeholder:"Votre nom" %>
-                <!--<input name="name" type="text" id="name" placeholder="Votre nom" required="required" />-->
-              </div>
+<!-- Start Contact -->
+<section class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card contact-detail text-center border-0">
+          <div class="card-body p-0">
+            <div class="icon">
+              <%= image_tag "icon/bitcoin", :class => "avatar avatar-small", :alt => "bitcoin" %>
             </div>
-
-            <div class="col-md-6">
-              <div>
-                <%= f.email_field :email, required: true, placeholder:"Email" %>
-                <!--<input name="email" type="email" id="email" placeholder="Email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" required="required" />-->
-              </div>
+            <div class="content mt-3">
+              <h4 class="title font-weight-bold">Phone</h4>
+              <p class="text-muted">Start working with Landrick that can provide everything</p>
+              <a href="tel:+152534-468-854" class="text-primary">+152 534-468-854</a>
             </div>
           </div>
+        </div>
+      </div><!--end col-->
 
-          <div>
-            <%= f.text_field :sujet, required: true, placeholder:"Sujet" %>
-            <!--<input name="subject" type="text" id="subject" placeholder="Sujet" required="required" />-->
+      <div class="col-md-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
+        <div class="card contact-detail text-center border-0">
+          <div class="card-body p-0">
+            <div class="icon">
+              <%= image_tag "icon/Email", :class => "avatar avatar-small", :alt => "Email" %>
+            </div>
+            <div class="content mt-3">
+              <h4 class="title font-weight-bold">Email</h4>
+              <p class="text-muted">Start working with Landrick that can provide everything</p>
+              <a href="mailto:contact@example.com" class="text-primary">contact@example.com</a>
+            </div>
           </div>
+        </div>
+      </div><!--end col-->
 
-          <div>
-            <%= f.text_area :message, required: true, placeholder:"Message" %>
-            <!--<textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message" spellcheck="true" required="required"></textarea>-->
+      <div class="col-md-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
+        <div class="card contact-detail text-center border-0">
+          <div class="card-body p-0">
+            <div class="icon">
+              <%= image_tag "icon/location", :class => "avatar avatar-small", :alt => "location" %>
+            </div>
+            <div class="content mt-3">
+              <h4 class="title font-weight-bold">Location</h4>
+              <p class="text-muted">C/54 Northwest Freeway, Suite 558, <br>Houston, USA 485</p>
+              <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin" class="video-play-icon h6 text-primary">View on Google map</a>
+            </div>
           </div>
+        </div>
+      </div><!--end col-->
+    </div><!--end row-->
+  </div><!--end container-->
 
-          <%= f.submit 'Envoyer', class:'btn btn-primary' %>
-          <!--<input type="submit" class="submit button" id="submit" value="Envoyer" />-->
+  <div class="container mt-100 mt-60">
+    <div class="row align-items-center">
+      <div class="col-lg-5 col-md-6 pt-2 pt-sm-0 order-2 order-md-1">
+        <div class="card shadow rounded border-0">
+          <div class="card-body py-5">
+            <h4 class="card-title">Contactez-nous !</h4>
+            <div class="custom-form mt-4">
+              <div id="message"></div>
+              <form method="post" action="php/contact.php" name="contact-form" id="contact-form">
+                <%= form_for @contact do |f| %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group position-relative">
+                      <label>Votre nom <span class="text-danger">*</span></label>
+                      <i data-feather="user" class="fea icon-sm icons"></i>
+                      <%= f.text_field :name, required: true, placeholder:"Votre nom", :class => "form-control pl-5" %>
+                    </div>
+                  </div><!--end col-->
+                  <div class="col-md-6">
+                    <div class="form-group position-relative">
+                      <label>Votre mail <span class="text-danger">*</span></label>
+                      <i data-feather="mail" class="fea icon-sm icons"></i>
+                      <%= f.email_field :email, required: true, placeholder:"Email", :class => "form-control pl-5" %>
+                    </div>
+                  </div><!--end col-->
+                  <div class="col-md-12">
+                    <div class="form-group position-relative">
+                      <label>Sujet</label>
+                      <i data-feather="book" class="fea icon-sm icons"></i>
+                      <%= f.text_field :sujet, required: true, placeholder:"Sujet", :class => "form-control pl-5" %>
+                    </div>
+                  </div><!--end col-->
+                  <div class="col-md-12">
+                    <div class="form-group position-relative">
+                      <label>Message</label>
+                      <i data-feather="message-circle" class="fea icon-sm icons"></i>
+                      <%= f.text_area :message, required: true, placeholder:"Message", :class => "form-control pl-5" %>
+                    </div>
+                  </div>
+                </div><!--end row-->
+                <div class="row">
+                  <div class="col-sm-12 text-center">
+                    <%= f.submit 'Envoyer', class:'submitBnt btn btn-primary btn-block' %>
+                    <div id="simple-msg"></div>
+                  </div><!--end col-->
+                </div><!--end row-->
+                <% end %>
+              </form><!--end form-->
+            </div><!--end custom-form-->
+          </div>
+        </div>
+      </div><!--end col-->
 
-        <% end %>
-      </section>
-    </div>
-    <!-- Contact Form / End -->
+      <div class="col-lg-7 col-md-6 order-1 order-md-2">
+        <div class="card border-0">
+          <div class="card-body p-0">
+            <%= image_tag "contact.svg", :class => "img-fluid", :alt => "contact" %>
+          </div>
+        </div>
+      </div><!--end col-->
+    </div><!--end row-->
+  </div><!--end container-->
 
-  </div>
-
-</div>
-<!-- Container / End -->
-
-<br><br><br>
+  <div class="container-fluid mt-100 mt-60">
+    <div class="row">
+      <div class="col-12 p-0">
+        <div class="card map border-0">
+          <div class="card-body p-0">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167998.10803373056!2d2.206977064368058!3d48.858774103123785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1580936720010!5m2!1sfr!2sfr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div><!--end col-->
+    </div><!--end row-->
+  </div><!--end container-->
+</section><!--end section-->
+<!-- End contact -->

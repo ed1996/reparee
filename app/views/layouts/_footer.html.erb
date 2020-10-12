@@ -1,122 +1,86 @@
-<!-- Footer -->
+<!-- Footer Start -->
 <footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+        <a href="#" class="logo-footer">
+          <%= image_tag 'logo-reparee.png', :alt => "logo-reparee" %>
+        </a>
+        <p class="mt-4">Annuaire pour les artisans de France qui cherchent à développer leurs clientèles et pour les personnes qui ont besoin du meilleur artisan pour réaliser le meilleur dépannage.</p>
+        <ul class="list-unstyled social-icon social mb-0 mt-4">
+          <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
+          <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
+          <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+          <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+        </ul><!--end icon-->
+      </div><!--end col-->
 
-  <!-- Footer Top -->
-  <div class="footer-top">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-3 col-md-6">
+      <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+        <h4 class="text-light footer-head">Entreprise</h4>
+        <ul class="list-unstyled footer-list mt-4">
+          <li><%= link_to 'Abonnement', abonnement_path %></li>
+          <li><%= link_to 'Nos valeurs', features_path %></li>
+          <li><%= link_to 'Equipe', team_path %></li>
+          <li><%= link_to 'FAQ', faq_path %></li>
+          <li><%= link_to 'Contact', new_contact_path %></li>
+        </ul>
+      </div><!--end col-->
 
-          <!-- Footer Widget -->
-          <div class="footer-widget footer-about">
-            <div class="footer-logo">
-              <%= image_tag 'logo-reparee.png' %>
-            </div>
-            <div class="footer-about-content">
-              <p>Annuaire pour les artisans de France qui cherchent à développer leurs clientèles et pour les personnes qui ont besoin du meilleur artisan pour réaliser le meilleur dépannage. </p>
-              <div class="social-icon">
-                <ul>
-                  <li>
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-                  </li>
-                </ul>
+      <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+        <h4 class="text-light footer-head">Liens utiles</h4>
+        <ul class="list-unstyled footer-list mt-4">
+          <li><a href="page-terms.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Terms of Services</a></li>
+          <li><a href="page-privacy.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Privacy Policy</a></li>
+          <li><a href="documentation.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Documentation</a></li>
+          <li><a href="changelog.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Changelog</a></li>
+          <li><a href="components.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Components</a></li>
+        </ul>
+      </div><!--end col-->
+
+      <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+        <h4 class="text-light footer-head">Contactez-nous</h4>
+        <p class="mt-4">Sign up and receive the latest tips via email.</p>
+        <form>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="foot-subscribe form-group position-relative">
+                <label>Write your email <span class="text-danger">*</span></label>
+                <i data-feather="mail" class="fea icon-sm icons"></i>
+                <input type="email" name="email" id="emailsubscribe" class="form-control pl-5 rounded" placeholder="Your email : " required>
               </div>
             </div>
-          </div>
-          <!-- /Footer Widget -->
-
-        </div>
-
-        <div class="col-lg-6 col-md-6 text-center">
-
-          <!-- Footer Widget -->
-          <div class="footer-widget footer-menu">
-            <h2 class="footer-title">Liens utiles</h2>
-            <ul>
-              <li><%= link_to 'Abonnement', abonnement_path %></li>
-              <li><%= link_to 'Nos valeurs', features_path %></li>
-              <li><%= link_to 'Equipe', team_path %></li>
-              <li><%= link_to 'FAQ', faq_path %></li>
-              <li><%= link_to 'Contact', new_contact_path %></li>
-            </ul>
-          </div>
-          <!-- /Footer Widget -->
-
-        </div>
-
-
-        <div class="col-lg-3 col-md-6">
-
-          <!-- Footer Widget -->
-          <div class="footer-widget footer-contact">
-            <h2 class="footer-title">Contactez-nous</h2>
-            <div class="footer-contact-info">
-              <div class="footer-address">
-                <span><i class="fas fa-map-marker-alt"></i></span>
-                <p> 84 avenue de la république, Paris,<br> 75011 </p>
-              </div>
-              <p>
-                <i class="fas fa-phone-alt"></i>
-                06.98.05.87.88
-              </p>
-              <p class="mb-0">
-                <i class="fas fa-envelope"></i>
-                support@reparee.com
-              </p>
+            <div class="col-lg-12">
+              <input type="submit" id="submitsubscribe" name="send" class="btn btn-soft-primary btn-block" value="Subscribe">
             </div>
           </div>
-          <!-- /Footer Widget -->
-
+        </form>
+      </div><!--end col-->
+    </div><!--end row-->
+  </div><!--end container-->
+</footer><!--end footer-->
+<footer class="footer footer-bar">
+  <div class="container text-center">
+    <div class="row align-items-center">
+      <div class="col-sm-6">
+        <div class="text-sm-left">
+          <p class="mb-0">&copy; 2020 Reparee. Tous droits réservés.</p>
         </div>
+      </div><!--end col-->
 
-      </div>
-    </div>
-  </div>
-  <!-- /Footer Top -->
+      <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+        <ul class="list-unstyled text-sm-right mb-0">
+          <%= image_tag "payments/american-ex.png", :class => "avatar avatar-ex-sm" %>
+          <%= image_tag "payments/discover.png", :class => "avatar avatar-ex-sm" %>
+          <%= image_tag "payments/master-card.png", :class => "avatar avatar-ex-sm" %>
+          <%= image_tag "payments/paypal.png", :class => "avatar avatar-ex-sm" %>
+          <%= image_tag "payments/visa.png", :class => "avatar avatar-ex-sm" %>
+        </ul>
+      </div><!--end col-->
+    </div><!--end row-->
+  </div><!--end container-->
+</footer><!--end footer-->
+<!-- Footer End -->
 
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    <div class="container-fluid">
-
-      <!-- Copyright -->
-      <div class="copyright">
-        <div class="row">
-          <div class="col-md-6 col-lg-6">
-            <div class="copyright-text">
-              <p class="mb-0">&copy; 2020 Reparee. Tous droits réservés.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-6">
-
-            <!-- Copyright Menu
-            <div class="copyright-menu">
-              <ul class="policy-menu">
-                <li><a href="term-condition.html">Terms and Conditions</a></li>
-                <li><a href="privacy-policy.html">Policy</a></li>
-              </ul>
-            </div>
-             -->
-
-          </div>
-        </div>
-      </div>
-      <!-- /Copyright -->
-
-    </div>
-  </div>
-  <!-- /Footer Bottom -->
-
-</footer>
-<!-- /Footer -->
+<!-- Back to top -->
+<a href="#" class="btn btn-icon btn-soft-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a>
+<!-- Back to top -->

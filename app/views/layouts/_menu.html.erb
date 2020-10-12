@@ -1,70 +1,203 @@
-<nav class="navbar navbar-expand-lg header-nav">
-  <div class="navbar-header">
-    <a id="mobile_btn" href="javascript:void(0);">
-							<span class="bar-icon">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-    </a>
-    <%= link_to root_path, class:"navbar-brand logo" do %>
-      <%= image_tag 'logo-reparee.png', :class => "img-fluid" %>
-    <% end %>
-  </div>
-  <div class="main-menu-wrapper">
-    <div class="menu-header">
-      <a href="index.html" class="menu-logo">
+<!-- Navbar STart -->
+<header id="topnav" class="defaultscroll sticky">
+  <div class="container">
+    <!-- Logo container-->
+    <div>
+      <%= link_to root_path, class:"logo" do %>
         <%= image_tag 'logo-reparee.png', :class => "img-fluid" %>
-      </a>
-      <a id="menu_close" class="menu-close" href="javascript:void(0);">
-        <i class="fas fa-times"></i>
-      </a>
+      <% end %>
     </div>
-    <ul class="main-nav">
-      <li class="active">
-        <%= link_to 'Accueil', root_path %>
-      </li>
-      <li><%= link_to 'Abonnement', abonnement_path %></li>
-      <li><%= link_to 'Nos valeurs', features_path %></li>
-      <li><%= link_to 'Equipe', team_path %></li>
-      <li><%= link_to 'FAQ', faq_path %></li>
-      <li><%= link_to 'Contact', new_contact_path %></li>
-      <li class="login-link">
-        <a href="login.html">Login / Signup</a>
-      </li>
-    </ul>
-  </div>
-  <ul class="nav header-navbar-rht">
     <% if user_signed_in?  %>
-      <div class="main-nav">
-        <li class="has-submenu">
-          <a><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %></a>
+
+    <% else %>
+    <div class="buy-button">
+      <a href="https://1.envato.market/4n73n" target="_blank">
+        <%= link_to 'Espace client', new_user_session_path, :class => "btn btn-primary login-btn-primary" %>
+        <%= link_to 'Espace client', new_user_session_path, :class => "btn btn-light login-btn-light" %>
+      </a>
+    </div><!--end login button-->
+    <% end %>
+    <!-- End Logo container-->
+    <div class="menu-extras">
+      <div class="menu-item">
+        <!-- Mobile menu toggle-->
+        <a class="navbar-toggle">
+          <div class="lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </a>
+        <!-- End mobile menu toggle-->
+      </div>
+    </div>
+
+    <div id="navigation">
+      <!-- Navigation Menu-->
+      <% if action_name == "home" %>
+      <ul class="navigation-menu nav-light">
+      <% else %><ul class="navigation-menu">
+      <% end %>
+        <li><%= link_to 'Accueil', root_path %></li>
+        <li><%= link_to 'Abonnement', abonnement_path %></li>
+        <li><%= link_to 'Services', features_path %></li>
+        <li><%= link_to 'Equipe', team_path %></li>
+        <li><%= link_to 'Contact', new_contact_path %></li>
+        <% if user_signed_in?  %>
+          <li class="has-submenu"><a><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %></a>
+            <ul class="submenu">
+              <li><%= link_to 'Profil', user_path(current_user.id) %></li>
+              <li><%= link_to conversations_path do %> Messages <% end %></li>
+              <li><%= link_to 'Abonnement', new_subscriber_path %></li>
+              <li><%= link_to 'Mes entreprises', entreprises_path %></li>
+              <li><%= link_to 'Mes rendez-vous', vos_rendez_vous_path %></li>
+              <li><%= link_to 'Mes reservations', vos_reservations_path %></li>
+              <li><%= link_to 'Ajout entreprise', new_entreprise_path %></li>
+              <li><%= link_to 'Modifier profil', edit_user_registration_path %></li>
+              <li><%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+          <% end %>
+
+ <!--       <li class="has-submenu">
+          <a href="javascript:void(0)">Pages</a><span class="menu-arrow"></span>
           <ul class="submenu">
-            <li><%= link_to 'Profil', user_path(current_user.id) %></li>
-            <li><%= link_to conversations_path do %> Messages <% end %></li>
-            <li><%= link_to 'Abonnement', new_subscriber_path %></li>
-            <li><%= link_to 'Mes entreprises', entreprises_path %></li>
-            <li><%= link_to 'Mes rendez-vous', vos_rendez_vous_path %></li>
-            <li><%= link_to 'Mes reservations', vos_reservations_path %></li>
-            <li><%= link_to 'Ajout entreprise', new_entreprise_path %></li>
-            <li><%= link_to 'Modifier profil', edit_user_registration_path %></li>
-            <li><%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %></li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Company <span class="badge badge-primary rounded">Added</span></a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="page-aboutus.html"> About Us</a></li>
+                <li><a href="page-aboutus-two.html"> About Us Two <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="page-services.html">Services</a></li>
+                <li><a href="page-history.html">History <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="page-team.html"> Team</a></li>
+                <li><a href="page-pricing.html">Pricing</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Account <span class="badge badge-primary rounded">Added</span></a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="account-profile.html">Profile</a></li>
+                <li><a href="account-members.html">Members <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="account-works.html">Works <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="account-messages.html">Messages <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="account-payments.html">Payments <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="account-setting.html">Setting</a></li>
+                <li><a href="page-invoice.html">Invoice</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Shop </a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="shop-products.html">All Products</a></li>
+                <li><a href="shop-product-detail.html">Product Details</a></li>
+                <li><a href="shop-cart.html">Shop Cart</a></li>
+                <li><a href="shop-checkouts.html">Checkouts</a></li>
+                <li><a href="shop-myaccount.html">My Account</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Help center </a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="helpcenter-overview.html">Helpcenter</a></li>
+                <li><a href="helpcenter-faqs.html">Faqs</a></li>
+                <li><a href="helpcenter-guides.html">Guides</a></li>
+                <li><a href="helpcenter-support-request.html">Support Call</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Forums <span class="badge badge-danger rounded">v2.5</span></a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="forums.html">Overview <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="forums-topic.html">Forum Topic <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="forums-comments.html">Forum Comments <span class="badge badge-success rounded">New</span></a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Email Template</a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="email-confirmation.html">Confirmation</a></li>
+                <li><a href="email-password-reset.html">Reset Password</a></li>
+                <li><a href="email-alert.html">Alert</a></li>
+                <li><a href="email-invoice.html">Invoice</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)">Careers</a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="page-jobs.html">Jobs</a></li>
+                <li><a href="page-jobs-sidebar.html">Jobs - Sidebar</a></li>
+                <li><a href="page-job-detail.html">Job Detail</a></li>
+                <li><a href="page-job-apply.html">Job Apply</a></li>
+                <li><a href="page-job-company.html">Company</a></li>
+                <li><a href="page-job-candidate.html">Candidate</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Blog <span class="badge badge-primary rounded">Added</span></a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="page-blog-grid.html">Blog Grid</a></li>
+                <li><a href="page-blog-sidebar.html">Blog with Sidebar</a></li>
+                <li><a href="page-blog-list.html">Blog Listing</a></li>
+                <li><a href="page-blog-list-sidebar.html">Blog List & Sidebar</a></li>
+                <li><a href="page-blog-detail.html">Blog Detail</a></li>
+                <li><a href="page-blog-detail-two.html">Blog Detail 2 <span class="badge badge-success rounded">New</span></a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Case Study <span class="badge badge-danger rounded">v2.5</span></a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="page-cases.html">All Cases <span class="badge badge-success rounded">New</span></a></li>
+                <li><a href="page-case-detail.html">Case Detail <span class="badge badge-success rounded">New</span></a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Works</a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="page-work-modern.html">Works Modern</a></li>
+                <li><a href="page-work-classic.html">Works Classic</a></li>
+                <li><a href="page-work-grid.html">Works Grid</a></li>
+                <li><a href="page-work-masonry.html">Works Masonry</a></li>
+                <li><a href="page-work-detail.html">Work Detail</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Auth Pages</a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="auth-login.html">Login</a></li>
+                <li><a href="auth-cover-login.html">Login Cover</a></li>
+                <li><a href="auth-login-three.html">Login Simple</a></li>
+                <li><a href="auth-signup.html">Signup</a></li>
+                <li><a href="auth-cover-signup.html">Signup Cover</a></li>
+                <li><a href="auth-signup-three.html">Signup Simple</a></li>
+                <li><a href="auth-re-password.html">Reset Password</a></li>
+                <li><a href="auth-cover-re-password.html">Reset Password Cover</a></li>
+                <li><a href="auth-re-password-three.html">Reset Password Simple</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Utility </a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="page-terms.html">Terms of Services</a></li>
+                <li><a href="page-privacy.html">Privacy Policy</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Special </a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="page-comingsoon.html">Coming Soon</a></li>
+                <li><a href="page-comingsoon2.html">Coming Soon Two</a></li>
+                <li><a href="page-maintenance.html">Maintenance</a></li>
+                <li><a href="page-error.html">Error</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu"><a href="javascript:void(0)"> Contact </a><span class="submenu-arrow"></span>
+              <ul class="submenu">
+                <li><a href="page-contact-detail.html">Contact Detail</a></li>
+                <li><a href="page-contact-one.html">Contact One</a></li>
+                <li><a href="page-contact-two.html">Contact Two</a></li>
+                <li><a href="page-contact-three.html">Contact Three</a></li>
+              </ul>
+            </li>
           </ul>
         </li>
-      </div>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to 'Espace client', new_user_session_path, :class => "nav-link header-login" %>
-      </li>
-    <% end %>
-    <li class="nav-item contact-item">
-      <div class="header-contact-img">
-        <i class="far fa-hospital"></i>
-      </div>
-      <div class="header-contact-detail">
-        <p class="contact-header">Contact</p>
-        <p class="contact-info-header"> +1 315 369 5943</p>
-      </div>
-    </li>
-  </ul>
-</nav>
+        <li class="has-submenu">
+          <a href="javascript:void(0)">Docs</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+            <li><a href="components.html">Components</a></li>
+            <li><a href="widget.html">Widget</a></li>
+          </ul>
+        </li>-->
+      </ul><!--end navigation menu-->
+    </div><!--end navigation-->
+  </div><!--end container-->
+</header><!--end header-->
+<!-- Navbar End -->

@@ -90,6 +90,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    cookies_eu (1.7.7)
+      js_cookie_rails (~> 2.2.0)
     crass (1.0.5)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -103,6 +105,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
+    feathericon-sass (1.0.0)
+      sass (>= 3.2)
     ffi (1.11.3)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -123,6 +127,9 @@ GEM
       has_scope (~> 0.6)
       railties (>= 5.0, < 6.1)
       responders (>= 2, < 4)
+    inline_svg (1.7.1)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.5)
@@ -133,6 +140,8 @@ GEM
       railties (>= 3.1)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    js_cookie_rails (2.2.0)
+      railties (>= 3.1)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -157,6 +166,8 @@ GEM
     mail_form (1.8.0)
       actionmailer (>= 5.0)
       activemodel (>= 5.0)
+    material_design_icons (4.1.95)
+      inline_svg (~> 1.0)
     method_source (0.9.2)
     mime-types (3.3)
       mime-types-data (~> 3.2015)
@@ -319,8 +330,10 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
+  cookies_eu
   devise
   devise-i18n
+  feathericon-sass
   geocoder
   jbuilder (~> 2.5)
   jquery-rails
@@ -328,6 +341,7 @@ DEPENDENCIES
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
   mail_form
+  material_design_icons
   mysql2 (>= 0.3.18, < 0.5)
   paperclip
   paperclip-cloudinary

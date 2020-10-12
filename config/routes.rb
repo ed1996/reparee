@@ -37,5 +37,6 @@ Rails.application.routes.draw do
   get '/features' => 'pages#features'
   get '/success' => 'pages#success'
   get '/abonnement' => 'pages#abonnement'
+  get '/accueilsaas' => 'pages#homesaas'
 
 end

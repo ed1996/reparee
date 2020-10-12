@@ -49,6 +49,9 @@ gem 'stripe'
 gem 'activeadmin'
 gem 'mail_form'
 gem 'jquery-slick-rails'
+gem 'material_design_icons'
+gem 'feathericon-sass'
+gem 'cookies_eu'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -13,9 +13,11 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery-ui
+//= require jquery-3.5.1.min
 //= require rails-timeago-all
 //= require bootstrap-sprockets
 //= require toastr
+//= require cookies_eu
 //= require_tree .
 
 
@@ -358,3 +360,4 @@ Version      : 1.0
     $(window).scroll(animateElements);
 
 })(jQuery);
+//= require cookies_eu
