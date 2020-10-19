@@ -29,11 +29,8 @@
       <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
         <h4 class="text-light footer-head">Liens utiles</h4>
         <ul class="list-unstyled footer-list mt-4">
-          <li><a href="page-terms.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Terms of Services</a></li>
-          <li><a href="page-privacy.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Privacy Policy</a></li>
-          <li><a href="documentation.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Documentation</a></li>
-          <li><a href="changelog.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Changelog</a></li>
-          <li><a href="components.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> Components</a></li>
+          <li><i class="mdi mdi-chevron-right mr-1"></i><%= link_to 'Politique de confidentialité', politique_de_confidentialite_path, :class => "text-foot" %></li>
+          <li><i class="mdi mdi-chevron-right mr-1"></i><%= link_to 'Mentions légales', mentions_legales_path, :class => "text-foot" %></li>
         </ul>
       </div><!--end col-->
 

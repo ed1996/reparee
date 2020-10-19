@@ -104,5 +104,4 @@
         $('[data-toggle="popover"]').popover()
     });
     //Feather icon
-    feather.replace()
-}(jQuery)
+}(jQuery);

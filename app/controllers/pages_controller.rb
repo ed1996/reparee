@@ -29,6 +29,14 @@ class PagesController < ApplicationController
 
   end
 
+  def politique
+
+  end
+
+  def mentions
+
+  end
+
   def search
     if params[:search].present? && params[:search].strip != ""
       session[:company_search] = params[:search]

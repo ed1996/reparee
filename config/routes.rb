@@ -38,5 +38,7 @@ Rails.application.routes.draw do
   get '/success' => 'pages#success'
   get '/abonnement' => 'pages#abonnement'
   get '/accueilsaas' => 'pages#homesaas'
+  get '/politique-de-confidentialite' => "pages#politique"
+  get '/mentions-legales' => "pages#mentions"
 
 end
