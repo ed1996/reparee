@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Artisanapp</title>
+    <title><%= meta_title %></title>
+
+    <meta name="description" content="<%= meta_description %>">
+    <meta charset="utf-8"/>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +15,7 @@
     <!-- Bootstrap -->
     <!-- Icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
-    <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body class="account-page">
@@ -23,5 +27,7 @@
           <%= render 'layouts/footer' %>
   </div>
   <%= render 'cookies_eu/consent_banner' %>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </body>
 </html>

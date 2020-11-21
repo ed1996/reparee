@@ -8,10 +8,9 @@
           <div class="page-next">
             <nav aria-label="breadcrumb" class="d-inline-block">
               <ul class="breadcrumb bg-white rounded shadow mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Landrick</a></li>
-                <li class="breadcrumb-item"><a href="#">Page</a></li>
-                <li class="breadcrumb-item"><a href="#">Utility</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Terms</li>
+                <li class="breadcrumb-item"><%= link_to 'Accueil', root_path %></li>
+                <!--<li class="breadcrumb-item"><a href="#">Page</a></li>-->
+                <li class="breadcrumb-item active" aria-current="page"><%= link_to 'Mentions', mentions_legales_path, :class => "breadcrumb-item active" %></li>
               </ul>
             </nav>
           </div>
@@ -39,10 +38,12 @@
       <div class="col-lg-9">
         <div class="card shadow border-0 rounded">
           <div class="card-body">
-            <h5 class="card-title">Introduction :</h5>
-            <p class="text-muted">It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. One may speculate that over the course of time certain letters were added or deleted at various positions within the text.</p>
+            <h5 class="card-title">Informations générales :</h5>
+            <p class="text-muted">Numéro SIRET : 883 738 643 00013</p>
+            <p class="text-muted">Activité Principale Exercée (APE) : 6209Z Autres activités informatiques</p>
+            <p class="text-muted">Mail : contact@reparee.fr</p>
 
-            <h5 class="card-title">User Agreements :</h5>
+            <h5 class="card-title">Hébergeur :</h5>
             <p class="text-muted">The most well-known dummy text is the 'Lorem Ipsum', which is said to have <b class="text-danger">originated</b> in the 16th century. Lorem Ipsum is <b class="text-danger">composed</b> in a pseudo-Latin language which more or less <b class="text-danger">corresponds</b> to 'proper' Latin. It contains a series of real Latin words. This ancient dummy text is also <b class="text-danger">incomprehensible</b>, but it imitates the rhythm of most European languages in Latin script. The <b class="text-danger">advantage</b> of its Latin origin and the relative <b class="text-danger">meaninglessness</b> of Lorum Ipsum is that the text does not attract attention to itself or distract the viewer's <b class="text-danger">attention</b> from the layout.</p>
             <p class="text-muted">There is now an <b class="text-danger">abundance</b> of readable dummy texts. These are usually used when a text is <b class="text-danger">required purely</b> to fill a space. These alternatives to the classic Lorem Ipsum texts are often amusing and tell short, funny or <b class="text-danger">nonsensical</b> stories.</p>
             <p class="text-muted">It seems that only <b class="text-danger">fragments</b> of the original text remain in the Lorem Ipsum texts used today. One may speculate that over the course of time certain letters were added or deleted at various positions within the text.</p>

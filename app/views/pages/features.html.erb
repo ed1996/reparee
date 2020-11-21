@@ -8,9 +8,9 @@
           <div class="page-next">
             <nav aria-label="breadcrumb" class="d-inline-block">
               <ul class="breadcrumb bg-white rounded shadow mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Landrick</a></li>
-                <li class="breadcrumb-item"><a href="#">Page</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Services</li>
+                <li class="breadcrumb-item"><%= link_to 'Accueil', root_path %></li>
+                <!--<li class="breadcrumb-item"><a href="#">Page</a></li>-->
+                <li class="breadcrumb-item active" aria-current="page"><%= link_to 'Services', features_path, :class => "breadcrumb-item active" %></li>
               </ul>
             </nav>
           </div>
@@ -42,8 +42,8 @@
           </div>
 
           <div class="content mt-4">
-            <h4 class="title-2">Design & Development</h4>
-            <p class="text-muted mb-0">Nisi aenean vulputate eleifend tellus vitae eleifend enim a Aliquam aenean elementum semper.</p>
+            <h4 class="title-2">Artisans expérimentés</h4>
+            <p class="text-muted mb-0">Reparee ne référence que des artisans qualifiés.</p>
           </div>
         </div>
       </div><!--end col-->
@@ -55,8 +55,8 @@
           </div>
 
           <div class="content mt-4">
-            <h4 class="title-2">Management & Marketing</h4>
-            <p class="text-muted mb-0">Allegedly, a Latin scholar established the origin of the text by established compiling unusual word.</p>
+            <h4 class="title-2">Annuaire des artisans</h4>
+            <p class="text-muted mb-0">Reparee permet de référencer des artisans pour qu'ils aient de la visibilité auprès des particuliers.</p>
           </div>
         </div>
       </div><!--end col-->
@@ -81,8 +81,8 @@
           </div>
 
           <div class="content mt-4">
-            <h4 class="title-2">Easy To Use</h4>
-            <p class="text-muted mb-0">Nisi aenean vulputate eleifend tellus vitae eleifend enim a Aliquam aenean elementum semper.</p>
+            <h4 class="title-2">Service 7j/7 intervention 24h/24</h4>
+            <p class="text-muted mb-0">Vous pouvez prendre rendez-vous avec un artisan à n'importe quel moment.</p>
           </div>
         </div>
       </div><!--end col-->
@@ -94,8 +94,8 @@
           </div>
 
           <div class="content mt-4">
-            <h4 class="title-2">Daily Reports</h4>
-            <p class="text-muted mb-0">Allegedly, a Latin scholar established the origin of the text by compiling unusual established word.</p>
+            <h4 class="title-2">Prise de rendez-vous en ligne</h4>
+            <p class="text-muted mb-0">Vous prenez rendez-vous avec l'artisan qui correspond à vos besoins et vous serez en contact directement avec lui.<br> Pour un artisan la plateforme permet d'avoir un système de gestion de rendez-vous</p>
           </div>
         </div>
       </div><!--end col-->
@@ -103,12 +103,12 @@
       <div class="col-md-4 col-12 mt-5">
         <div class="features">
           <div class="image position-relative d-inline-block">
-            <img src="images/icon/sand-clock.svg" class="avatar avatar-small" alt="">
+            <%= image_tag "icon/sand-clock", :class => "avatar avatar-small", :alt => "sablier" %>
           </div>
 
           <div class="content mt-4">
-            <h4 class="title-2">Real Time Zone</h4>
-            <p class="text-muted mb-0">It seems that only fragments of the original text remain in the Lorem Ipsum texts used fragments today.</p>
+            <h4 class="title-2">Vérification des artisans</h4>
+            <p class="text-muted mb-0">Reparee vérifie la qualité du travail des artisans avant de les référencer sur la plateforme ce qui garantie un travail de qualité.</p>
           </div>
         </div>
       </div><!--end col-->
@@ -119,8 +119,8 @@
     <div class="row justify-content-center">
       <div class="col-12 text-center">
         <div class="section-title mb-4 pb-2">
-          <h4 class="title mb-4">Client Reviews</h4>
-          <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary font-weight-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
+          <h4 class="title mb-4">Avis des clients</h4>
+          <p class="text-muted para-desc mx-auto mb-0">Commencer à travailler avec <span class="text-primary font-weight-bold">Reparee</span> pour de trouver l'artisan qu'il vous faut ou si vous êtes artisans cela permettra de gagner en visiblité parmis des centaines de visiteurs quotidien qui viennent sur la plateforme.</p>
         </div>
       </div><!--end col-->
     </div><!--end row-->
@@ -138,13 +138,13 @@
                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
               </ul>
-              <p class="text-muted mt-2">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. "</p>
+              <p class="text-muted mt-2">" Reparee m'a permit d'augmenter considérablement le chiffre d'affaire de mon entreprise. "</p>
               <h6 class="text-primary">- Thomas Israel <small class="text-muted">C.E.O</small></h6>
             </div>
           </div>
 
           <div class="media customer-testi m-2">
-            <img src="images/client/02.jpg" class="avatar avatar-small mr-3 rounded shadow" alt="">
+            <%= image_tag "smb-logo.png", :class => "img-fluid", :alt => "smb-logo" %>
             <div class="media-body content p-3 shadow rounded bg-white position-relative">
               <ul class="list-unstyled mb-0">
                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
@@ -153,7 +153,7 @@
                 <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                 <li class="list-inline-item"><i class="mdi mdi-star-half text-warning"></i></li>
               </ul>
-              <p class="text-muted mt-2">" One disadvantage of Lorum Ipsum is that in Latin certain letters appear more frequently than others. "</p>
+              <p class="text-muted mt-2">" Prise de contact rapide et facile. Artisans très professionnels, je recommande ! "</p>
               <h6 class="text-primary">- Barbara McIntosh <small class="text-muted">M.D</small></h6>
             </div>
           </div>
@@ -172,7 +172,7 @@
               <h6 class="text-primary">- Carl Oliver <small class="text-muted">P.A</small></h6>
             </div>
           </div>
-
+<!--
           <div class="media customer-testi m-2">
             <img src="images/client/04.jpg" class="avatar avatar-small mr-3 rounded shadow" alt="">
             <div class="media-body content p-3 shadow rounded bg-white position-relative">
@@ -216,7 +216,7 @@
               <p class="text-muted mt-2">" Thus, Lorem Ipsum has only limited suitability as a visual filler for German texts. "</p>
               <h6 class="text-primary">- Jill Webb <small class="text-muted">Designer</small></h6>
             </div>
-          </div>
+          </div>-->
         </div>
       </div><!--end col-->
     </div><!--end row-->

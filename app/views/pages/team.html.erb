@@ -8,9 +8,9 @@
           <div class="page-next">
             <nav aria-label="breadcrumb" class="d-inline-block">
               <ul class="breadcrumb bg-white rounded shadow mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="#">Page</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Equipe</li>
+                <li class="breadcrumb-item"><%= link_to 'Accueil', root_path %></li>
+                <!--<li class="breadcrumb-item"><a href="#">Page</a></li>-->
+                <li class="breadcrumb-item active" aria-current="page"><%= link_to 'Equipe', team_path, :class => "breadcrumb-item active" %></li>
               </ul>
             </nav>
           </div>
@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <div class="section-title mb-4 pb-2">
-          <h4 class="title">Team #1</h4>
+          <h4 class="title">Team Reparee</h4>
         </div>
       </div><!--end col-->
     </div><!--end row-->

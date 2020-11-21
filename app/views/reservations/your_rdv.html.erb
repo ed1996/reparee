@@ -56,11 +56,11 @@
                 <%= image_tag r.entreprise.photos[0].image.url(:thumb) if r.entreprise.photos.length > 0 %>
               <% end %>
             </div>
-            <!--<div class="col-md-2">
-            <%#    <%= link_to user_path(r.entreprise.user) do %>
-             <%#    <%= image_tag avatar_url(r.entreprise.user), class:"im-circle avatar-medium" %>
-             <%#  <% end %>
-            </div>-->
+            <div class="col-md-2">
+               <%= link_to user_path(r.entreprise.user) do %>
+                 <%= image_tag avatar_url(r.entreprise.user), class:"im-circle avatar-medium" %>
+               <% end %>
+            </div>
             <div class="col-md-2">
               <p><%= r.description %></p>
             </div>

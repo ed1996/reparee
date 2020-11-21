@@ -18,10 +18,15 @@ class SubscribersController < ApplicationController
 
     current_user.subscribed = true
     current_user.stripeid = customer.id
+    current_user.save
 
-    if current_user.save
-      redirect_to root_path
-    end
+    redirect_to root_path
+
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_subscriber_path
+
 
   end
 

@@ -4,7 +4,11 @@
     <!-- Logo container-->
     <div>
       <%= link_to root_path, class:"logo" do %>
-        <%= image_tag 'logo-reparee.png', :class => "img-fluid" %>
+        <% if action_name == "home" %>
+          <%= image_tag 'logoreparee-white.png', :class => "img-fluid", :id => "imgwhite" %>
+        <% else %>
+          <%= image_tag 'logo-reparee.png', :class => "img-fluid" %>
+        <% end %>
       <% end %>
     </div>
     <% if user_signed_in?  %>
@@ -35,8 +39,9 @@
     <div id="navigation">
       <!-- Navigation Menu-->
       <% if action_name == "home" %>
-      <ul class="navigation-menu nav-light">
-      <% else %><ul class="navigation-menu">
+        <ul class="navigation-menu nav-light">
+      <% else %>
+        <ul class="navigation-menu">
       <% end %>
         <li><%= link_to 'Accueil', root_path %></li>
         <li><%= link_to 'Abonnement', abonnement_path %></li>

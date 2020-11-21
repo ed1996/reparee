@@ -40,5 +40,6 @@ Rails.application.routes.draw do
   get '/accueilsaas' => 'pages#homesaas'
   get '/politique-de-confidentialite' => "pages#politique"
   get '/mentions-legales' => "pages#mentions"
+  get '/cgv' => "pages#cgv"
 
 end

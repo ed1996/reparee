@@ -1,90 +1,95 @@
-<%= form_tag subscriber_path(1), method: :put do %>
-
-  <!-- Pricing Tables
-         ================================================== -->
-
-  <!-- Row / Start -->
-  <div class="row">
-
-    <div class="col-md-12">
-      <div class="pricing-container margin-top-30">
-
-        <!-- Plan #1 -->
-
-        <div class="plan">
-
-          <div class="plan-price">
-            <h3>Basic</h3>
-            <span class="value">Gratuit</span>
-            <span class="period">Gratuit pour les particuliers qui veulent prendre rendez-vous avec une entreprise</span>
-          </div>
-
-          <div class="plan-features">
-            <ul>
-              <li>Accès à vie</li>
-              <li>Prise de rendez-vous avec artisan</li>
-              <li>24/7 Support</li>
-            </ul>
-            <div class="clinic-booking">
-              <a class="abonnement-btn" href="#">Souscrire</a>
+<%= form_tag subscriber_path(1), method: :put, id: "payment-form" do %>
+  <!-- Hero Start -->
+  <section class="bg-half bg-light d-table w-100">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+          <div class="page-next-level">
+            <h4 class="title"> Abonnement </h4>
+            <div class="page-next">
+              <nav aria-label="breadcrumb" class="d-inline-block">
+                <ul class="breadcrumb bg-white rounded shadow mb-0">
+                  <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                  <li class="breadcrumb-item"><a href="#">Page</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Equipe</li>
+                </ul>
+              </nav>
             </div>
           </div>
+        </div>  <!--end col-->
+      </div><!--end row-->
+    </div> <!--end container-->
+  </section><!--end section-->
+  <!-- Hero End -->
 
-        </div>
-
-        <!-- Plan #3 -->
-        <div class="plan featured">
-
-          <!--<div class="listing-badge">
-            <span class="featured">Featured</span>
-          </div>-->
-
-          <div class="plan-price">
-            <h3>Professionnel</h3>
-            <span class="value">59€</span>
-            <span class="period">Abonnez-vous et inscrivez votre entreprise directement</span>
-          </div>
-          <div class="plan-features">
-            <ul>
-              <li>1 entreprise</li>
-              <li>Accès à vie</li>
-              <li>Accessible directement dans les résultats de recherche</li>
-              <li>24/7 Support</li>
-            </ul>
-            <div class="clinic-booking">
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button abonnement-btn"
-                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                      data-description="Abonnement mensuel"
-                      data-amount="5900"
-                      data-locale="auto"></script><span>59.00€ par mois</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Plan #3 -->
-        <div class="plan">
-
-          <div class="plan-price">
-            <h3>Premium</h3>
-            <span class="value">189€</span>
-            <span class="period">Ajouter autant d'entreprises que vous voulez</span>
-          </div>
-
-          <div class="plan-features">
-            <ul>
-              <li>Entreprise illimitées</li>
-              <li>Accès à vie</li>
-              <li>Accessible directement dans les résultats de recherche</li>
-              <li>24/7 Support</li>
-            </ul>
-            <div class="clinic-booking">
-              <%= link_to 'Souscrire', new_premium_path, :class => "abonnement-btn" %>
-            </div>
-          </div>
-        </div>
-
-      </div>
+  <!-- Shape Start -->
+  <div class="position-relative">
+    <div class="shape overflow-hidden text-white">
+      <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+      </svg>
     </div>
   </div>
-  <!-- Row / End -->
+  <!--Shape End-->
+  <div class="container mt-100 mt-60">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-title text-center mb-4 pb-2">
+          <h4 class="title mb-4">Enregistrer votre entreprise</h4>
+          <p class="text-muted para-desc mb-0 mx-auto">Démarrer votre collaboration avec <span class="text-primary font-weight-bold">Reparee</span> pour générer des clients rapidement.</p>
+        </div>
+      </div><!--end col-->
+    </div><!--end row-->
+
+    <div class="row align-items-end">
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+
+      </div><!--end col-->
+
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="pricing text-center rounded overflow-hidden shadow-lg">
+          <div class="price-header border-bottom bg-primary pt-5 pb-5">
+            <h1 class="text-white-50"><i class="uil uil-award"></i></h1>
+            <h5 class="price-title text-white">Professionnel</h5>
+            <p class="mb-0 text-light">Suitable for Collaborating Team</p>
+          </div>
+          <div class="border-bottom py-5">
+            <h2 class="font-weight-bold">€ 59.00</h2>
+            <h6 class="text-muted mb-0 font-weight-normal">Par mois et par utilisateur</h6>
+            <%#  <%= link_to 'Souscrire', new_subscriber_path, :class => "btn btn-primary mt-4" %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button abonnement-btn"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-name="Reparee"
+                    data-description="Abonnement mensuel"
+                    data-panel-label="59€/mois"
+                    data-locale="fr"></script>
+
+          </div>
+          <div class="pricing-features text-left p-4">
+            <h5>What's included:</h5>
+            <ul class="feature list-unstyled mb-0">
+              <li class="text-muted"><i data-feather="arrow-right" class="fea icon-sm text-primary mr-2"></i>1 entreprise</li>
+              <li class="text-muted mt-2"><i data-feather="arrow-right" class="fea icon-sm text-primary mr-2"></i>Accès à vie</li>
+              <li class="text-muted mt-2"><i data-feather="arrow-right" class="fea icon-sm text-primary mr-2"></i>Accessible directement dans les résultats de recherche</li>
+              <li class="text-muted mt-2"><i data-feather="arrow-right" class="fea icon-sm text-primary mr-2"></i>24/7 Support</li>
+              <li class="text-muted mt-2"><i data-feather="arrow-right" class="fea icon-sm text-primary mr-2"></i>Gestion des RDV</li>
+            </ul>
+          </div>
+        </div><!--end price three-->
+      </div><!--end col-->
+
+
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+
+      </div><!--end col-->
+    </div><!--end row-->
+  </div><!--end container-->
+
+  <br><br><br>
+
 <% end %>
+<script>
+    $(function() {
+        $(".stripe-button-el").replaceWith('<button type="submit" class="btn btn-primary mt-4">Payer</button>');
+    });
+</script>

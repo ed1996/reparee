@@ -4,13 +4,13 @@
     <div class="row justify-content-center">
       <div class="col-lg-12 text-center">
         <div class="page-next-level">
-          <h4 class="title"> Abonnement </h4>
+          <h4 class="title">Abonnement</h4>
           <div class="page-next">
             <nav aria-label="breadcrumb" class="d-inline-block">
               <ul class="breadcrumb bg-white rounded shadow mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="#">Page</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Equipe</li>
+                <li class="breadcrumb-item"><%= link_to 'Accueil', root_path %></li>
+                <!--<li class="breadcrumb-item"><a href="#">Page</a></li>-->
+                <li class="breadcrumb-item active" aria-current="page"><%= link_to 'Abonnement', abonnement_path, :class => "breadcrumb-item active" %></li>
               </ul>
             </nav>
           </div>
@@ -46,7 +46,7 @@
         <div class="price-header border-bottom pt-5 pb-5">
           <h1 class="text-primary"><i class="uil uil-lightbulb-alt"></i></h1>
           <h5 class="price-title">Basique</h5>
-          <p class="mb-0 text-muted">Suitable for Starter</p>
+          <p class="mb-0 text-muted">Idéal pour les particuliers</p>
         </div>
         <div class="border-bottom py-4">
           <h2 class="font-weight-bold">€ 0.00</h2>
@@ -54,7 +54,7 @@
           <a href="javascript:void(0)" class="btn btn-primary mt-4">Souscrire</a>
         </div>
         <div class="pricing-features text-left p-4">
-          <h5>What's included:</h5>
+          <h5>Ce qui est inclus:</h5>
           <ul class="feature list-unstyled mb-0">
             <li class="text-muted"><i data-feather="arrow-right" class="fea icon-sm text-dark mr-2"></i>Accès à vie</li>
             <li class="text-muted mt-2"><i data-feather="arrow-right" class="fea icon-sm text-dark mr-2"></i>Prise de rendez-vous avec artisan</li>
@@ -72,7 +72,7 @@
         <div class="price-header border-bottom bg-primary pt-5 pb-5">
           <h1 class="text-white-50"><i class="uil uil-award"></i></h1>
           <h5 class="price-title text-white">Professionnel</h5>
-          <p class="mb-0 text-light">Suitable for Collaborating Team</p>
+          <p class="mb-0 text-light">Idéal pour les petites entreprises</p>
         </div>
         <div class="border-bottom py-5">
           <h2 class="font-weight-bold">€ 59.00</h2>
@@ -80,7 +80,7 @@
           <%= link_to 'Souscrire', new_subscriber_path, :class => "btn btn-primary mt-4" %>
         </div>
         <div class="pricing-features text-left p-4">
-          <h5>What's included:</h5>
+          <h5>Ce qui est inclus:</h5>
           <ul class="feature list-unstyled mb-0">
             <li class="text-muted"><i data-feather="arrow-right" class="fea icon-sm text-primary mr-2"></i>1 entreprise</li>
             <li class="text-muted mt-2"><i data-feather="arrow-right" class="fea icon-sm text-primary mr-2"></i>Accès à vie</li>
@@ -97,7 +97,7 @@
         <div class="price-header border-bottom pt-5 pb-5">
           <h1 class="text-primary"><i class="uil uil-briefcase-alt"></i></h1>
           <h5 class="price-title">Premium</h5>
-          <p class="mb-0 text-muted">Suitable for Premium</p>
+          <p class="mb-0 text-muted">Idéal pour toutes les entreprises</p>
         </div>
         <div class="border-bottom py-4">
           <h2 class="font-weight-bold">€ 109.00</h2>
@@ -105,7 +105,7 @@
           <%= link_to 'Souscrire', new_premium_path, :class => "btn btn-primary mt-4" %>
         </div>
         <div class="pricing-features text-left p-4">
-          <h5>What's included:</h5>
+          <h5>Ce qui est inclus:</h5>
           <ul class="feature list-unstyled mb-0">
             <li class="text-muted"><i data-feather="arrow-right" class="fea icon-sm text-dark mr-2"></i>Entreprise illimitées</li>
             <li class="text-muted mt-2"><i data-feather="arrow-right" class="fea icon-sm text-dark mr-2"></i>Accès à vie</li>
