@@ -71,7 +71,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production, :staging do
+group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
