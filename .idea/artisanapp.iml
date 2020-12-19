@@ -67,6 +67,7 @@
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="feathericon-sass (v1.0.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.11.3, rbenv: 2.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="figaro (v1.2.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="formtastic (v3.1.5, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="formtastic_i18n (v0.6.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="geocoder (v1.5.2, rbenv: 2.4.4) [gem]" level="application" />
