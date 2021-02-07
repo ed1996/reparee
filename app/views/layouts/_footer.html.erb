@@ -8,10 +8,12 @@
         </a>
         <p class="mt-4">Annuaire pour les artisans de France qui cherchent à développer leurs clientèles et pour les personnes qui ont besoin du meilleur artisan pour réaliser le meilleur dépannage.</p>
         <ul class="list-unstyled social-icon social mb-0 mt-4">
-          <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
+          <li class="list-inline-item"><a href="" class=""><%= image_tag 'facebook.png' %></a></li>
+          <li class="list-inline-item"><a href="" class=""><%= image_tag 'instagram.png' %></a></li>
+          <%#c<li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
           <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
           <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-          <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+          <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li> %>
         </ul><!--end icon-->
       </div><!--end col-->
 
@@ -37,18 +39,19 @@
 
       <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
         <h4 class="text-light footer-head">Contactez-nous</h4>
-        <p class="mt-4">Sign up and receive the latest tips via email.</p>
+        <p class="mt-4">N'hésitez pas à nous contacter pour avoir plus d'informations.</p>
         <form>
           <div class="row">
-            <div class="col-lg-12">
+            <!--<div class="col-lg-12">
               <div class="foot-subscribe form-group position-relative">
                 <label>Write your email <span class="text-danger">*</span></label>
                 <i data-feather="mail" class="fea icon-sm icons"></i>
                 <input type="email" name="email" id="emailsubscribe" class="form-control pl-5 rounded" placeholder="Your email : " required>
               </div>
-            </div>
+            </div>-->
             <div class="col-lg-12">
-              <input type="submit" id="submitsubscribe" name="send" class="btn btn-soft-primary btn-block" value="Subscribe">
+              <!--<input type="submit" id="submitsubscribe" name="send" class="btn btn-soft-primary btn-block" value="Subscribe">-->
+              <%= link_to 'Contactez-nous', new_contact_path, :class => "btn btn-soft-primary btn-block" %>
             </div>
           </div>
         </form>
