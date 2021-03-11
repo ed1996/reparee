@@ -8,10 +8,9 @@
           <div class="page-next">
             <nav aria-label="breadcrumb" class="d-inline-block">
               <ul class="breadcrumb bg-white rounded shadow mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Landrick</a></li>
-                <li class="breadcrumb-item"><a href="#">Page</a></li>
-                <li class="breadcrumb-item"><a href="#">Utility</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Privacy</li>
+                <li class="breadcrumb-item"><%= link_to 'Accueil', root_path %></li>
+                <!--<li class="breadcrumb-item"><a href="#">Page</a></li>-->
+                <li class="breadcrumb-item active" aria-current="page"><%= link_to 'Ajout entreprise', new_entreprise_path, :class => "breadcrumb-item active" %></li>
               </ul>
             </nav>
           </div>
@@ -42,7 +41,14 @@
         <% if current_user.subscribed? %>
           <%= render 'form' %>
         <% else %>
-          <h2>Vous devez être abonnés à la plateforme pour inscrire votre entreprise</h2>
+          <br><br><br><br><br>
+                <!-- Profile Sidebar -->
+                  <div class="col-md-12 col-lg-12 col-xl-12">
+
+                    <h2 class="text-center">Vous devez être abonnés à la plateforme pour inscrire votre entreprise</h2>
+
+                  </div>
+          <br><br><br><br><br>
         <% end %>
       </div>
     </div>
