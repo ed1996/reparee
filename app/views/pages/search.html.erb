@@ -8,10 +8,8 @@
           <div class="page-next">
             <nav aria-label="breadcrumb" class="d-inline-block">
               <ul class="breadcrumb bg-white rounded shadow mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Landrick</a></li>
-                <li class="breadcrumb-item"><a href="#">Page</a></li>
-                <li class="breadcrumb-item"><a href="#">Careers</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Jobs</li>
+                <li class="breadcrumb-item"><%= link_to 'Accueil', root_path %></li>
+                <!--<li class="breadcrumb-item"><a href="#">Page</a></li>-->
               </ul>
             </nav>
           </div>
@@ -69,7 +67,7 @@
       <div class="col-lg-8 col-md-6 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
         <div class="row">
           <% if @arrReparee.empty? %>
-            Aucuns artisans actuellement enregistré
+           <!-- Aucuns artisans actuellement enregistré -->
 
             <% @products.each do |entreprise| %>
               <div class="col-lg-6 col-12 mb-4 pb-2">
@@ -175,51 +173,52 @@
 <!-- Job List End -->
 
     <div class="row">
-      <% if @arrReparee.empty? %>
+  <%#     <% if @arrReparee.empty?
         Aucuns artisans actuellement enregistré
-      <% else %>
-        <% @arrReparee.each do |entreprise| %>
+      <% else
+        <% @arrReparee.each do |entreprise|
           <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading preview">
-                <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0 %>
+                <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0
               </div>
               <div class="panel-body">
-                <%= link_to entreprise.company_name, entreprise %>
+                <%= link_to entreprise.company_name, entreprise
               </div>
             </div>
           </div>
-        <% end %>
+        <% end
       <% end %>
     </div>
 
     <hr><hr><hr>
 
-<!-- Page Content -->
+
+
+<!-- Page Content
 <div class="content">
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+      <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">-->
 
-        <!-- Search Filter -->
+        <!-- Search Filter
         <div class="card search-filter">
           <div class="card-header">
             <h4 class="card-title mb-0">Recherche d'artisan</h4>
-          </div>
+          </div>-->
 
 
-          <%= search_form_for @searchies, url: search_path do |f| %>
+      <%#    <%= search_form_for @searchies, url: search_path do |f|
             <div class="card-body">
               <div class="filter-widget">
-                  <%= f.text_field :address_cont, placeholder:"Ville", class:"form-control" %>
+                  <%= f.text_field :address_cont, placeholder:"Ville", class:"form-control"
               </div>
-              <%= f.select :artisan_type_eq, [["Plombier","Plombier"],["Serrurier","Serrurier"]], id: "artisan_type", prompt:"A sélectionner...", class:"form-control" %>
-              <div class="btn-search">
-                <%= f.submit "Rechercher", class:"btn btn-block" %>
+              <%= f.select :artisan_type_eq, [["Plombier","Plombier"],["Serrurier","Serrurier"]], id: "artisan_type", prompt:"A sélectionner...", class:"form-control"
+                <%= f.submit "Rechercher", class:"btn btn-block"
               </div>
             </div>
-          <% end %>
+          <% end
         </div>
         <!-- /Search Filter -->
 
@@ -228,40 +227,40 @@
       <div class="col-md-12 col-lg-8 col-xl-9">
 
         <!-- Doctor Widget -->
-        <% if @products.empty? %>
+        <% if @products.empty?
           Aucuns artisans actuellement enregistré
-        <% else %>
-          <% @products.each do |entreprise| %>
+        <% else
+          <% @products.each do |entreprise|
         <div class="card">
           <div class="card-body">
             <div class="doctor-widget">
               <div class="doc-info-left">
                 <div class="doctor-img">
                   <a href="doctor-profile.html">
-                    <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0 %>
+                    <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0
                   </a>
                 </div>
                 <div class="doc-info-cont">
-                  <h4 class="doc-name"><%= link_to entreprise.company_name, entreprise %></h4>
-                  <p class="doc-speciality"><%= image_tag 'maps-and-location.png', :class => "img-fluid" %><%= entreprise.address %></p>
-                  <% if entreprise.artisan_type == 'Plombier' %>
-                  <h5 class="doc-department"><%= image_tag 'repair.png', :class => "img-fluid" %>Plombier</h5>
-                    <% else %>
-                    <h5 class="doc-department"><%= image_tag 'password.png', :class => "img-fluid" %>Serrurier</h5>
-                    <% end %>
+                  <h4 class="doc-name"><%= link_to entreprise.company_name, entreprise </h4>
+                  <p class="doc-speciality"><%= image_tag 'maps-and-location.png', :class => "img-fluid" <%= entreprise.address </p>
+                  <% if entreprise.artisan_type == 'Plombier'
+                  <h5 class="doc-department"><%= image_tag 'repair.png', :class => "img-fluid" Plombier</h5>
+                    <% else
+                    <h5 class="doc-department"><%= image_tag 'password.png', :class => "img-fluid" Serrurier</h5>
+                    <% end
                   <div class="rating">
                     <!--<span class="d-inline-block average-rating">(17)</span>-->
                   </div>
                   <div class="clinic-services">
-                    <% if entreprise.artisan_type == 'Plombier' %>
+                    <% if entreprise.artisan_type == 'Plombier'
                       <span>Dépannage de fuite</span>
                       <span>Débouchage de canalisation</span>
                       <span>Remplacement de lavabo</span>
-                    <% elsif entreprise.artisan_type == 'Serrurier' %>
+                    <% elsif entreprise.artisan_type == 'Serrurier'
                       <span>Ouverture de Porte Fermée</span>
                       <span>Remplacement de Serrure</span>
                       <span>Installation Verrou de sécurité</span>
-                    <% end %>
+                    <% end
                   </div>
                 </div>
               </div>
@@ -269,20 +268,20 @@
                 <div class="clini-infos">
                   <ul>
                     <li><i class="far fa-thumbs-up"></i> 98%</li>
-                    <li><i class="far fa-comment"></i> <%= entreprise.reviews.count %> Feedback</li>
-                    <li><%= image_tag 'phone.png', :class => 'img-fluid' %> = <%= entreprise.phone %></li>
+                    <li><i class="far fa-comment"></i> <%= entreprise.reviews.count  Feedback</li>
+                    <li><%= image_tag 'phone.png', :class => 'img-fluid'  = <%= entreprise.phone </li>
                   </ul>
                 </div>
                 <div class="clinic-booking">
-                  <%= link_to 'Voir le profil', entreprise, :class => "apt-btn" %>
+                  <%= link_to 'Voir le profil', entreprise, :class => "apt-btn"
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-          <% end %>
-        <% end %>
+          <% end
+        <% end
         <!-- /Doctor Widget -->
 
 
@@ -294,3 +293,4 @@
 
 </div>
 <!-- /Page Content -->
+    %>
