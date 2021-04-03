@@ -12,7 +12,7 @@ class PremiumsController < ApplicationController
 
     customer = Stripe::Customer.create(
         card: token,
-        plan: 2202,
+        plan: 'price_1Ic7GfCMsWiGyDH3RzZ2UiXz',
         email: current_user.email
     )
 
