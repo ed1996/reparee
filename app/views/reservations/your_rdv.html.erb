@@ -48,7 +48,7 @@
         <% @rdv.order("id DESC").each do |r| %>
           <div class="row">
             <div class="col-md-2">
-              Du <%= r.start_date.strftime('%d.%m.%y') %> à <%= r.hour %><%= r.minute %>
+              Du <%= r.start_date %> à <%= r.hour %><%= r.minute %>
             </div>
             <div class="col-md-2">
               <%= link_to entreprise_path(r.entreprise) do %>
