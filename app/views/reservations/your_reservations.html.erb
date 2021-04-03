@@ -50,7 +50,7 @@
         <% entreprise.reservations.order("id DESC").each do |reservation| %>
           <div class="row">
             <div class="col-md-2">
-              Du <%= reservation.start_date %> à <%= reservation.hour %><%= reservation.minute %>
+              Du <%= reservation.start_date.strftime('%d.%m.%y') %> à <%= reservation.hour %><%= reservation.minute %>
             </div>
             <div class="col-md-2">
               <%= link_to entreprise_path(reservation.entreprise) do %>
