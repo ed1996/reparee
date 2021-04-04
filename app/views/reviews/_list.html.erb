@@ -19,10 +19,12 @@
       </div>
     </div>
     <script>
-        $('#stars_<%= r.id %>').raty({
-            path: '/assets',
-            readOnly: true,
-            score: <%= r.star %>
+        $(document).ready(function() {
+            $('#stars_<%= r.id %>').raty({
+                path: '/assets',
+                readOnly: true,
+                score: <%= r.star %>
+            });
         });
     </script>
   <% end %>
