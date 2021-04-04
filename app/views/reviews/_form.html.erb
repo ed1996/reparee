@@ -13,9 +13,11 @@
 
 
 <script>
-    $('#user_stars').raty({
-        path: '/assets',
-        scoreName: 'review[star]',
-        score: 1
+    $(document).ready(function() {
+        $('#user_stars').raty({
+            path: '/assets',
+            scoreName: 'review[star]',
+            score: 1
+        });
     });
 </script>
