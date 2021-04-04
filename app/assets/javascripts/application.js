@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery-ui
-//= require jquery.raty
 //= require app
 //= require rails-timeago-all
 //= require bootstrap-sprockets
