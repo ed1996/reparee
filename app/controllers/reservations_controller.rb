@@ -6,6 +6,7 @@ class ReservationsController < ApplicationController
     @reservation = current_user.reservations.create(reservation_params)
     if @reservation.save
       ApplicationMailer.new_reservation(Entreprise.find(@reservation.entreprise_id), @reservation).deliver_now
+      ApplicationMailer.new_rendezvous(Entreprise.find(@reservation.entreprise_id), @reservation).deliver_now
       redirect_to success_path
     end
   end
