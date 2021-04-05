@@ -12,11 +12,11 @@ class ReservationsController < ApplicationController
   end
 
   def your_rdv
-    @rdv = current_user.reservations
+    @rdv = current_user.reservations.order("created_at DESC").limit(5)
   end
 
   def your_reservations
-    @entreprises = current_user.entreprises
+    @entreprises = current_user.entreprises.order("created_at DESC").limit(5)
   end
 
   private
