@@ -14,7 +14,7 @@ Rails.application.configure do
       raise_delivery_errors: true
   }
 
-  config.action_controller.asset_host = 'reparee.herokuapp.com'
+  config.action_controller.asset_host = 'https://reparee.herokuapp.com/'
   config.action_mailer.asset_host = config.action_controller.asset_host
   # Settings specified here will take precedence over those in config/application.rb.
 
