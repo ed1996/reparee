@@ -26,7 +26,10 @@ toastr.options = {
     "positionClass":"toast-bottom-right"
 };
 
-
+$('.navbar-toggle').on('click', function (event) {
+    $(this).toggleClass('open');
+    $('#navigation').slideToggle(400);
+});
 /* Template Name: Landrick - Saas & Software Landing Page Template
    Author: Shreethemes
    E-mail: shreethemes@gmail.com
@@ -104,12 +107,17 @@ toastr.options = {
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
-        if (scroll >= 50) {
+        if ($(window).width() < 960) {
             $(".sticky").addClass("nav-sticky");
             $("#imgwhite").attr("src", "assets/logo-reparee.png");
         } else {
-            $(".sticky").removeClass("nav-sticky");
-            $("#imgwhite").attr("src", "assets/logoreparee-white.png");
+            if (scroll >= 50) {
+                $(".sticky").addClass("nav-sticky");
+                $("#imgwhite").attr("src", "assets/logo-reparee.png");
+            } else {
+                $(".sticky").removeClass("nav-sticky");
+                $("#imgwhite").attr("src", "assets/logoreparee-white.png");
+            }
         }
     });
 

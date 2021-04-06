@@ -15,7 +15,7 @@
  *     03.  Sticky Menu     *
  *     03.  Back to top     *
  ===========================*/
-
+/*
 ! function($) {
     "use strict";
     // Loader
@@ -106,4 +106,7 @@
         $('[data-toggle="popover"]').popover()
     });
     //Feather icon
-}(jQuery);
+
+    */
+ /*
+}(jQuery);*/

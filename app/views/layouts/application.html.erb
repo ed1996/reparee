@@ -29,5 +29,18 @@
   <%= render 'cookies_eu/consent_banner' %>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('.navbar-toggle').on('click', function (event) {
+              $(this).toggleClass('open');
+              $('#navigation').slideToggle(400);
+          });
+
+          if ($(window).width() < 960) {
+              $(".sticky").addClass("nav-sticky");
+              $("#imgwhite").attr("src", "assets/logo-reparee.png");
+          }
+      });
+  </script>
   </body>
 </html>
