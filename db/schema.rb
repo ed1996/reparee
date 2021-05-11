@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201019210328) do
+ActiveRecord::Schema.define(version: 20210511194134) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 20201019210328) do
     t.float "longitude", limit: 24
     t.text "summary"
     t.index ["user_id"], name: "index_entreprises_on_user_id"
+  end
+
+  create_table "factures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "montant"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "mail"
+    t.index ["user_id"], name: "index_factures_on_user_id"
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -147,6 +157,7 @@ ActiveRecord::Schema.define(version: 20201019210328) do
   end
 
   add_foreign_key "entreprises", "users"
+  add_foreign_key "factures", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "photos", "entreprises"

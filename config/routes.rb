@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'factures/index'
+
+  get 'factures/show'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, :path=>'',
@@ -41,5 +45,7 @@ Rails.application.routes.draw do
   get '/politique-de-confidentialite' => "pages#politique"
   get '/mentions-legales' => "pages#mentions"
   get '/cgv' => "pages#cgv"
+
+  resources :factures, only: [:index, :show]
 
 end

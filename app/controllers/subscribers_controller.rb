@@ -20,6 +20,8 @@ class SubscribersController < ApplicationController
     current_user.stripeid = customer.id
     current_user.save
 
+    current_user.factures.create(user_id: current_user.id, mail: current_user.email, montant: "59", name: current_user.fullname)
+
     redirect_to root_path
 
 

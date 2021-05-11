@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :entreprises
   has_many :reservations
   has_many :reviews
+  has_many :factures
 end
