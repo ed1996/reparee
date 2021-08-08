@@ -1,3 +1,5 @@
+<%= content_for :meta_title, "Listes des entreprises | #{DEFAULT_META["meta_title"]}" %>
+<%= content_for :meta_description, "Liste de vos rendez-vous | #{DEFAULT_META["meta_description"]}" %>
 <!-- Hero Start -->
 <section class="bg-half bg-light d-table w-100">
   <div class="container">
@@ -78,13 +80,13 @@
                       <div class="job-overlay bg-white"></div>
                     </div>
                     <h5 class="mb-0 position"><a href="page-job-detail.html" class="text-dark"><%= entreprise.reviews.count %> Feedback</a>
-                      <ul class="list-unstyled h6 mb-0 text-warning">
+                      <!--<ul class="list-unstyled h6 mb-0 text-warning">
                         <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
                         <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
                         <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
                         <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
                         <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
-                      </ul>
+                      </ul>-->
                     </h5>
                     <ul class="list-unstyled head mb-0">
                       <li class="badge badge-success badge-pill">Plombier</li>
@@ -115,17 +117,17 @@
             <div class="card job-box rounded shadow border-0 overflow-hidden">
               <div class="border-bottom">
                 <div class="position-relative">
-                  <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0 %>
+                  <%= image_tag entreprise.photos[0].image.url(:medium), :class => "style_image" if entreprise.photos.length > 0 %>
                   <div class="job-overlay bg-white"></div>
                 </div>
                 <h5 class="mb-0 position"><a href="page-job-detail.html" class="text-dark"><%= entreprise.reviews.count %> Feedback</a>
-                  <ul class="list-unstyled h6 mb-0 text-warning">
+                 <!-- <ul class="list-unstyled h6 mb-0 text-warning">
                     <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
                     <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
                     <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
                     <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
                     <li class="list-inline-item mb-0"><i class="mdi mdi-star"></i></li>
-                  </ul>
+                  </ul>-->
                 </h5>
                 <ul class="list-unstyled head mb-0">
                   <li class="badge badge-success badge-pill">Plombier</li>
