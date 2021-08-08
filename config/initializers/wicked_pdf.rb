@@ -12,8 +12,8 @@ WickedPdf.config = {
   # Path to the wkhtmltopdf executable: This usually isn't needed if using
   # one of the wkhtmltopdf-binary family of gems.
   # Les lignes suivantes permettent dafficher le pdf en local mais les mettre en com pour la prod
-   exe_path: '/usr/local/bin/wkhtmltopdf',
-  enable_local_file_access: true
+  # exe_path: '/usr/local/bin/wkhtmltopdf',
+  #enable_local_file_access: true
   #   or
   # exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
 
