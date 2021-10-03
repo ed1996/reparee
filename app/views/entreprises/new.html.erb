@@ -20,7 +20,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <% if current_user.subscribed? && current_user.entreprises.count < 1 %>
+        <% if current_user.subscribed? && current_user.entreprises.count < 1 or current_user.premium? %>
           <%= render 'form' %>
         <% else %>
           <!-- Hero Start -->
