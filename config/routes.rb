@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :users, only: [:show]
   resources :entreprises do
-    resources :reservations, only: [:create]
+    resources :reservations, only: [:create, :destroy]
     resources :reviews, only: [:create, :destroy]
   end
   resources :photos

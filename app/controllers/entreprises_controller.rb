@@ -1,6 +1,6 @@
 class EntreprisesController < ApplicationController
 
-  before_action :set_entreprise, only: [:show, :edit, :update]
+  before_action :set_entreprise, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
   before_action :require_same_user, only: [:edit, :update]
 
@@ -53,6 +53,12 @@ class EntreprisesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @entreprise.destroy
+
+    redirect_to entreprises_path
   end
 
   private

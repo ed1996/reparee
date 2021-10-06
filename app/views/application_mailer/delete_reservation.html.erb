@@ -1,0 +1,10 @@
+<p>Bonjour <%= @user.fullname %></p>
+
+<p>Votre entreprise (<%= @entreprise.company_name %>) a une annulation de rendez-vous le
+  <%= @reservation.start_date.strftime('%d.%m.%y') %> à <%= @reservation.hour %> <%= @reservation.minute %>.</p>
+<p>Voici les coordonnées du demande de rendez-vous :
+  - <%= @reservation.address %>
+  - <%= @reservation.postal_code %>
+  - <%= @reservation.phone %></p>
+
+<%= image_tag 'logo-reparee.png' %>

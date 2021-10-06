@@ -1,0 +1,6 @@
+<p>Bonjour <%= @user.fullname %></p>
+
+<p>Votre rendez-vous avec l'entreprise (<%= @entreprise.company_name %>) prévu le
+  <%= @reservation.start_date.strftime('%d.%m.%y') %> à <%= @reservation.hour %> <%= @reservation.minute %> est annulée.</p>
+
+<%= image_tag 'logo-reparee.png' %>

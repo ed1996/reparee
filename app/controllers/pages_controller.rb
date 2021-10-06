@@ -66,7 +66,9 @@ class PagesController < ApplicationController
     @searchies = Entreprise.ransack(params[:q])
     @products = @searchies.result(distinct: true)
 
-    @products = @products.order('created_at DESC').page(params[:page]).per(2)
+    @products = @products.order('created_at DESC')
+   # @products = @products.order('created_at DESC').page(params[:page]).per(2)
+    # d'abord c'est arrreparee puis apres sa passe a @products
 
   end
 end

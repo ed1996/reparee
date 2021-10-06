@@ -76,7 +76,7 @@
                 <div class="card job-box rounded shadow border-0 overflow-hidden">
                   <div class="border-bottom">
                     <div class="position-relative">
-                      <%= image_tag entreprise.photos[0].image.url(:medium) if entreprise.photos.length > 0 %>
+                      <%= image_tag entreprise.photos[0].image.url(:medium), :class => "style_image" if entreprise.photos.length > 0 %>
                       <div class="job-overlay bg-white"></div>
                     </div>
                     <h5 class="mb-0 position"><a href="page-job-detail.html" class="text-dark"><%= entreprise.reviews.count %> Feedback</a>

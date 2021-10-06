@@ -58,6 +58,9 @@
             <div class="col-md-3 right">
               <%= link_to "Mettre à jour", edit_entreprise_path(entreprise), class:"btn btn-primary" %>
             </div>
+            <div class="col-md-3 right">
+              <%= link_to "supprimer", entreprise_path(entreprise), method: :delete, data: { confirm: "Voulez-vous annuler le rendez-vous ?"}, class:"btn btn-primary" %>
+            </div>
           </div>
             <hr>
           <% end %>
