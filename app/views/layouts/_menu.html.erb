@@ -47,7 +47,7 @@
         <li><%= link_to 'Equipe', team_path %></li>
         <li><%= link_to 'Contact', new_contact_path %></li>
         <% if user_signed_in?  %>
-          <li class="has-submenu"><a><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %></a>
+          <li class="has-submenu"><%= link_to user_path(current_user.id) do %> <%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %> <% end %>
             <ul class="submenu">
               <li><%= link_to 'Profil', user_path(current_user.id) %></li>
               <li><%= link_to conversations_path do %> Messages <% end %></li>
