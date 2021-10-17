@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :reservations, dependent: :delete_all
   has_many :reviews, dependent: :delete_all
   has_many :factures, dependent: :delete_all
+  has_many :messages, dependent: :delete_all
 end
