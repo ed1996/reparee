@@ -12,6 +12,7 @@ class FacturesController < ApplicationController
     @facture = Facture.find(params[:id])
     @user = @facture.user
     @num = rand 1000..10000
+    @facture_num = 1
 
     respond_to do |format|
       format.html

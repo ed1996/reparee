@@ -41,7 +41,7 @@
                 <div class="col-md-8 order-2 order-md-1">
                   <dl class="row">
                     <dt class="col-md-3 col-5 fw-normal">Facture Num :</dt>
-                    <dd class="col-md-9 col-7 text-muted"><%= @facture.id %><%= @num %></dd>
+                    <dd class="col-md-9 col-7 text-muted"><%= @facture.id %><%= @facture.created_at.strftime('%Y%m%d') %></dd>
 
                     <dt class="col-md-3 col-5 fw-normal">Nom :</dt>
                     <dd class="col-md-9 col-7 text-muted"><%= @user.fullname %></dd>
@@ -80,11 +80,11 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <th scope="row" class="text-start"><%= @facture.id %><%= @num %></th>
+                    <th scope="row" class="text-start"><%= @facture.id %><%= @facture.created_at.strftime('%Y%m%d') %></th>
                     <td class="text-start">Abonnement</td>
                     <td>1</td>
-                    <td>59</td>
-                    <td>59</td>
+                    <td><%= @facture.montant %></td>
+                    <td><%= @facture.montant %></td>
                   </tr>
                   </tbody>
                 </table>
@@ -95,7 +95,7 @@
                   <ul class="list-unstyled h6 fw-normal mt-4 mb-0 ms-md-5 ms-lg-4">
                     <!--<li class="text-muted d-flex justify-content-between">Subtotal :<span>$ 22600</span></li>
                     <li class="text-muted d-flex justify-content-between">Taxes :<span> 0</span></li>-->
-                    <li class="d-flex justify-content-between">Total :<span>59</span></li>
+                    <li class="d-flex justify-content-between">Total :<span><%= @facture.montant %></span></li>
                   </ul>
                 </div><!--end col-->
               </div><!--end row-->

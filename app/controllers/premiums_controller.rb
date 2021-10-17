@@ -21,6 +21,8 @@ class PremiumsController < ApplicationController
     current_user.stripeid = customer.id
     current_user.save
 
+    current_user.factures.create(user_id: current_user.id, mail: current_user.email, montant: "89", name: current_user.fullname)
+
     redirect_to root_path
 
 
