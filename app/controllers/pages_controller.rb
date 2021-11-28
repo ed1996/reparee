@@ -9,11 +9,11 @@ class PagesController < ApplicationController
 
   end
 
-  def team
+  def equipe
 
   end
 
-  def features
+  def services
 
   end
 
@@ -39,6 +39,11 @@ class PagesController < ApplicationController
 
   def cgv
 
+  end
+
+  def robots
+    # Don't forget to delete /public/robots.txt
+    respond_to :text
   end
 
   def search

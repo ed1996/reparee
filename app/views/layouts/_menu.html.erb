@@ -43,8 +43,8 @@
       <% end %>
         <li><%= link_to 'Accueil', root_path %></li>
         <li><%= link_to 'Abonnement', abonnement_path %></li>
-        <li><%= link_to 'Services', features_path %></li>
-        <li><%= link_to 'Equipe', team_path %></li>
+        <li><%= link_to 'Services', services_path %></li>
+        <li><%= link_to 'Equipe', equipe_path %></li>
         <li><%= link_to 'Contact', new_contact_path %></li>
         <% if user_signed_in?  %>
           <li class="has-submenu"><%= link_to user_path(current_user.id) do %> <%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %> <% end %>

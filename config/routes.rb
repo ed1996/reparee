@@ -37,14 +37,17 @@ Rails.application.routes.draw do
 
   get '/search' => 'pages#search'
   get '/faq' => 'pages#faq'
-  get '/team' => 'pages#team'
-  get '/features' => 'pages#features'
+  get '/equipe' => 'pages#equipe'
+  get '/services' => 'pages#services'
   get '/success' => 'pages#success'
   get '/abonnement' => 'pages#abonnement'
   get '/accueilsaas' => 'pages#homesaas'
   get '/politique-de-confidentialite' => "pages#politique"
   get '/mentions-legales' => "pages#mentions"
   get '/cgv' => "pages#cgv"
+
+  get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }
+  get "/robots.:format", to: "pages#robots"
 
   resources :factures, only: [:index, :show]
 
