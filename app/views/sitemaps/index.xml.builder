@@ -6,7 +6,7 @@ xml.tag! 'sitemapindex', 'xmlns' => "http://www.sitemaps.org/schemas/sitemap/0.9
   end
 
   xml.tag! 'url' do
-    xml.tag! 'loc', contact_url
+    xml.tag! 'loc', contacts_url
   end
 
   xml.tag! 'url' do
@@ -18,7 +18,7 @@ xml.tag! 'sitemapindex', 'xmlns' => "http://www.sitemaps.org/schemas/sitemap/0.9
   end
 
   xml.tag! 'url' do
-    xml.tag! 'loc', team_url
+    xml.tag! 'loc', equipe_url
   end
 
   xml.tag! 'url' do
@@ -26,11 +26,11 @@ xml.tag! 'sitemapindex', 'xmlns' => "http://www.sitemaps.org/schemas/sitemap/0.9
   end
 
   xml.tag! 'url' do
-    xml.tag! 'loc', politique-de-confidentialite_url
+    xml.tag! 'loc', politique_de_confidentialite_url
   end
 
   xml.tag! 'url' do
-    xml.tag! 'loc', mentions-legales_url
+    xml.tag! 'loc', mentions_legales_url
   end
 
   @entreprises.each do |entreprise|
