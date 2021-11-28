@@ -19,6 +19,7 @@
 //= require jquery_ujs
 //= require toastr
 //= require cookies_eu
+//= require google_analytics
 //= require_tree .
 
 
