@@ -13,4 +13,6 @@ class SitemapsController < ApplicationController
     headers['Content-Type'] = 'application/xml'
   end
 
+  # pour modifier le sitemap le remettre en .builder a la fin
+
 end
