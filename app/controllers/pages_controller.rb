@@ -43,7 +43,7 @@ class PagesController < ApplicationController
 
   def robots
     # Don't forget to delete /public/robots.txt
-    respond_to :text
+    render 'pages/robots.txt.erb'
   end
 
   def search

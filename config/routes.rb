@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get '/cgv' => "pages#cgv"
 
   get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }
-  get "/robots.:format", to: "pages#robots"
+  get "/robots.:format" => "pages#robots"
 
   resources :factures, only: [:index, :show]
 
