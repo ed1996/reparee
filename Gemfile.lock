@@ -287,6 +287,8 @@ GEM
       sendgrid-ruby (~> 6.4)
     sendgrid-ruby (6.4.0)
       ruby_http_client (~> 3.4)
+    sitemap_generator (6.2.1)
+      builder (~> 3.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -372,6 +374,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sendgrid-actionmailer
+  sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
   stripe
