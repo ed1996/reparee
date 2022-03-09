@@ -26,5 +26,5 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
 
-  add '/home'
+  add root_path, :changefreq => 'daily'
 end
